@@ -1,12 +1,10 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, url
 
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    'amtrak_decal_form.views',
     # Examples:
-    # url(r'^$', 'amtrak_decal_form.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', 'index', name='index'),
 )
