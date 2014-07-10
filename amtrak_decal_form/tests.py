@@ -9,5 +9,5 @@ class SmokeTestCase(TestCase):
         self.assertEqual(r.status_code, 200)
 
     def test_100_percent_code_coverage(self):
-        from amtrak_decal_form import wsgi  # noqa
+        from amtrak_decal_form import wsgi
         assert wsgi
