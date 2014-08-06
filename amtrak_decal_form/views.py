@@ -1,6 +1,11 @@
 from django.shortcuts import render
 
+from amtrak_decal_form.forms import UserInfoForm
+
 
 def index(request):
-    context = {}
+    form = UserInfoForm()
+    context = {
+        'form': form,
+    }
     return render(request, 'index.html', context)
