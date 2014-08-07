@@ -4,7 +4,11 @@ from amtrak_decal_form.forms import UserInfoForm
 
 
 def index(request):
-    form = UserInfoForm()
+    form = UserInfoForm(data=request.POST or {})
+    if request.method == 'POST':
+        if form.is_valid():
+            pass
+
     context = {
         'form': form,
     }
