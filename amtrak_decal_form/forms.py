@@ -1,6 +1,10 @@
 from django import forms
 
-from localflavor.us.forms import USPhoneNumberField
+from localflavor.us.forms import (
+    USPhoneNumberField,
+    USZipCodeField,
+    USStateSelect,
+)
 
 FORM_ERRORS = {
     'alternate_phone_number': {
@@ -18,8 +22,22 @@ class UserInfoForm(forms.Form):
         ]
     )
     # TODO figure out what to do with these.
-    # location = CharField()
-    # address = CharField()
+    location = forms.CharField()
+
+    line1 = forms.CharField(label='Street', required=True, max_length=50)
+    line2 = forms.CharField(
+        label='Second Street Address',
+        required=False,
+        max_length=50,
+    )
+    city = forms.CharField(label='City', max_length=50)
+    state = forms.CharField(
+        label='State',
+        widget=USStateSelect,
+        max_length=50,
+    )
+    zip_code = USZipCodeField(label='Zip Code')
+
     phone_number = USPhoneNumberField()
     alternate_phone_number = USPhoneNumberField(required=False)
     cost_center = forms.CharField()

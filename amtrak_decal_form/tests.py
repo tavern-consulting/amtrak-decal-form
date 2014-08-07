@@ -23,11 +23,17 @@ class FormTestCase(TestCase):
         return {
             'name': 'name',
             'department': 1,
+            'location': 'location',
             'phone_number': '123-456-7890',
             'alternate_phone_number': '123-456-0987',
             'cost_center': 'cost_center',
             'wbs_element': 'wbs_element',
             'account': 'account',
+            'line1': 'line1',
+            'line2': 'line2',
+            'city': 'Indianapolis',
+            'state': 'IN',
+            'zip_code': '46260',
         }
 
     def test_form_error_for_missing_fields(self):
