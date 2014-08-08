@@ -1,5 +1,68 @@
+<!DOCTYPE html>
 <html>
 <body>
-<p>Template Dir Found</p>
+<!-- on page load, trigger modal for terms of service -->
+
+<!--
+First pane:
+    Name 
+    Department - drop down
+    Location 
+    Address
+    Phone number
+    Alternate Phone Number - optional
+    Cost Center - input field (numerical)
+    WBS Element - input field (alpha-numeric)
+    Account - input field (numerical)
+
+    Click to continue (at some point use ajax to do form validation before actually going on.
+
+-->
+
+<!-- 
+Second pane: 
+
+    Radio button for rolling vs non-rolling stock
+    Radio button for Placard vs Decal
+    For Rolling Stock:
+        if Placard
+            Raised braille lettering?
+                If yes, gets flagged as vendor only. - Checkbox
+        else # Decal
+            Request for logos, numbers, or lettering only. - Checkbox
+        Fleet type (Amfleet I or II, Superliner, Acela, et al.) - Dropdown
+        Font
+            color - Radio Button
+        Border
+            color - Radio Button
+    For Non-Rolling Stock
+        if Placard
+        else # Decal
+            Request for logos, numbers, or lettering only. - Checkbox
+        Font
+            color - color pallet doo-hickey
+        Border
+            color - color pallet doo-hickey
+
+    Short description of signage, including where it will be used. - Textarea
+    Font 
+        face - dropdown
+        size - slider
+    Text - wsiwig editor
+    Border
+        type - dropdown
+        thickness - slider
+    Required substrate - dropdown
+    Sample window - click handler
+
+    submit
+
+-->
+<div class="pane-1">
+    {{ user_form.as_ul }}
+</div>
+<div class="pane-2">
+    {{ decal_form.as_ul }}
+</div>
 </body>
 </html>
