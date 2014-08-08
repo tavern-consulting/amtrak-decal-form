@@ -58,11 +58,14 @@ Second pane:
     submit
 
 -->
-<div class="pane-1">
-    {{ user_form.as_ul }}
-</div>
-<div class="pane-2">
-    {{ decal_form.as_ul }}
-</div>
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="pane-1">
+        {{ user_form.as_ul }}
+    </div>
+    <div class="pane-2">
+        {{ decal_form.as_ul }}
+    </div>
+</form>
 </body>
 </html>
