@@ -1,7 +1,7 @@
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
-from amtrak_decal_form.forms import UserInfoForm, FORM_ERRORS
+from amtrak_decal_form.forms import UserInfoForm, DecalSpecForm, FORM_ERRORS
 
 
 class SmokeTestCase(TestCase):
@@ -19,8 +19,9 @@ class FormTestCase(TestCase):
     url = reverse('index')
 
     @property
-    def user_params(self):
+    def params(self):
         return {
+            # User Form
             'name': 'name',
             'department': 1,
             'location': 'location',
@@ -34,6 +35,20 @@ class FormTestCase(TestCase):
             'city': 'Indianapolis',
             'state': 'IN',
             'zip_code': '46260',
+
+            # Decal Form
+            'rolling_stock_or_not': 1,
+            'placard_or_decal': 1,
+            'fleet_type': 1,
+            'font_color': '#FFFFFF',
+            'border_color': '#FFFFFF',
+            'description': 'Description',
+            'font_face': 1,
+            'font_size': '12',
+            'html': '<p>Test<p>',
+            'border_type': 1,
+            'border_thickness': '0',
+            'required_substrate': 1,
         }
 
     def test_form_error_for_missing_fields(self):
@@ -54,9 +69,25 @@ class FormTestCase(TestCase):
                         key,
                         'This field is required.',
                     )
+        for key, field in DecalSpecForm.base_fields.items():
+            if field.required:
+                self.assertFormError(
+                    r,
+                    'decal_form',
+                    key,
+                    'This field is required.',
+                )
+            else:
+                with self.assertRaises(AssertionError):
+                    self.assertFormError(
+                        r,
+                        'decal_form',
+                        key,
+                        'This field is required.',
+                    )
 
     def test_no_form_errors(self):
-        r = self.client.post(self.url, self.user_params)
+        r = self.client.post(self.url, self.params)
         for key, field in UserInfoForm.base_fields.items():
             with self.assertRaises(AssertionError):
                 self.assertFormError(
@@ -67,7 +98,7 @@ class FormTestCase(TestCase):
                 )
 
     def test_alternate_number_must_be_different(self):
-        params = self.user_params
+        params = self.params
         params['alternate_phone_number'] = params['phone_number']
         r = self.client.post(self.url, params)
         self.assertFormError(
