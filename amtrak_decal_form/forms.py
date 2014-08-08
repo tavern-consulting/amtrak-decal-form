@@ -21,7 +21,6 @@ class UserInfoForm(forms.Form):
             (2, 'Bar'),
         ]
     )
-    # TODO figure out what to do with these.
     location = forms.CharField()
 
     line1 = forms.CharField(label='Street', required=True, max_length=50)
