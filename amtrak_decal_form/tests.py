@@ -19,7 +19,7 @@ class FormTestCase(TestCase):
     url = reverse('index')
 
     @property
-    def params(self):
+    def user_params(self):
         return {
             'name': 'name',
             'department': 1,
@@ -40,34 +40,39 @@ class FormTestCase(TestCase):
         r = self.client.post(self.url, {})
         for key, field in UserInfoForm.base_fields.items():
             if field.required:
-                self.assertFormError(r, 'form', key, 'This field is required.')
+                self.assertFormError(
+                    r,
+                    'user_form',
+                    key,
+                    'This field is required.',
+                )
             else:
                 with self.assertRaises(AssertionError):
                     self.assertFormError(
                         r,
-                        'form',
+                        'user_form',
                         key,
                         'This field is required.',
                     )
 
     def test_no_form_errors(self):
-        r = self.client.post(self.url, self.params)
+        r = self.client.post(self.url, self.user_params)
         for key, field in UserInfoForm.base_fields.items():
             with self.assertRaises(AssertionError):
                 self.assertFormError(
                     r,
-                    'form',
+                    'user_form',
                     key,
                     'This field is required.',
                 )
 
     def test_alternate_number_must_be_different(self):
-        params = self.params
+        params = self.user_params
         params['alternate_phone_number'] = params['phone_number']
         r = self.client.post(self.url, params)
         self.assertFormError(
             r,
-            'form',
+            'user_form',
             'alternate_phone_number',
             FORM_ERRORS['alternate_phone_number']['duplicate'],
         )

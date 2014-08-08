@@ -53,3 +53,53 @@ class UserInfoForm(forms.Form):
                 FORM_ERRORS['alternate_phone_number']['duplicate'],
             )
         return alternate_phone_number
+
+
+class DecalSpecForm(forms.Form):
+    rolling_stock_or_not = forms.ChoiceField(
+        choices=[
+            (1, 'Rolling Stock'),
+            (2, 'Non-Rolling Stock'),
+        ],
+        widget=forms.RadioSelect(),
+    )
+
+    placard_or_decal = forms.ChoiceField(
+        choices=[
+            (1, 'Placard'),
+            (2, 'Decal'),
+        ],
+        widget=forms.RadioSelect(),
+    )
+    fleet_type = forms.ChoiceField(
+        choices=[
+            (1, 'Fleet'),
+            (2, 'Type'),
+        ]
+    )
+    font_color = forms.CharField(max_length=7)
+    border_color = forms.CharField(max_length=7)
+    description = forms.CharField(widget=forms.Textarea)
+    font_face = forms.ChoiceField(
+        choices=[
+            (1, 'Times New Roman'),
+            (2, 'Arial'),
+        ],
+    )
+    font_size = forms.CharField(max_length=3)
+    html = forms.CharField(widget=forms.Textarea)
+    border_type = forms.ChoiceField(
+        choices=[
+            (1, 'N/A'),
+            (2, 'Single'),
+        ],
+    )
+    border_thickness = forms.CharField()
+    required_substrate = forms.ChoiceField(
+        choices=[
+            (1, 'What'),
+            (2, 'Is'),
+            (3, 'A'),
+            (4, 'Substrate?'),
+        ],
+    )

@@ -1,16 +1,19 @@
 from django.shortcuts import render
 
-from amtrak_decal_form.forms import UserInfoForm
+from amtrak_decal_form.forms import UserInfoForm, DecalSpecForm
 
 
 def index(request):
-    form = UserInfoForm()
+    user_form = UserInfoForm()
+    decal_form = DecalSpecForm()
     if request.method == 'POST':
-        form = UserInfoForm(data=request.POST)
-        if form.is_valid():
+        user_form = UserInfoForm(data=request.POST)
+        decal_form = DecalSpecForm(data=request.POST)
+        if user_form.is_valid() and decal_form.is_valid():
             pass
 
     context = {
-        'form': form,
+        'user_form': user_form,
+        'decal_form': decal_form,
     }
     return render(request, 'index.html', context)
