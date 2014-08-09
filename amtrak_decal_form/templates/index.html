@@ -70,7 +70,7 @@ Second pane:
     submit
 
 -->
-    <form action="" method="post">
+<form action="{% url 'index' %}" method="post">
         {% csrf_token %}
         <div class="pane-1">
             {{ user_form.as_ul }}

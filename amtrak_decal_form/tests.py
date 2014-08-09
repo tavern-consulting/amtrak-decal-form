@@ -14,6 +14,11 @@ class SmokeTestCase(TestCase):
         from amtrak_decal_form import wsgi
         assert wsgi
 
+    def test_non_ajax_POST_on_validate_user_info_page_returns_404(self):
+        url = reverse('validate_user_info')
+        r = self.client.post(url)
+        self.assertEqual(r.status_code, 404)
+
 
 class FormTestCase(TestCase):
     url = reverse('index')
