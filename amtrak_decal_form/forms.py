@@ -9,8 +9,22 @@ from localflavor.us.forms import (
 FORM_ERRORS = {
     'alternate_phone_number': {
         'duplicate': 'The alternate phone number must be different than the phone number',  # noqa
-    }
+    },
+    'multiple': {
+        # TODO inform the user what colors are valid.
+        'invalid_color': 'The color you have chosen is not valid',
+    },
 }
+
+
+VALID_FONTS = (
+    '#FFFFFF',
+    '#000000',
+)
+
+
+ROLLING_STOCK = '1'
+NON_ROLLING_STOCK = '2'
 
 
 class UserInfoForm(forms.Form):
@@ -58,8 +72,8 @@ class UserInfoForm(forms.Form):
 class DecalSpecForm(forms.Form):
     rolling_stock_or_not = forms.ChoiceField(
         choices=[
-            (1, 'Rolling Stock'),
-            (2, 'Non-Rolling Stock'),
+            (ROLLING_STOCK, 'Rolling Stock'),
+            (NON_ROLLING_STOCK, 'Non-Rolling Stock'),
         ],
         widget=forms.RadioSelect(),
     )
@@ -103,3 +117,23 @@ class DecalSpecForm(forms.Form):
             (4, 'Substrate?'),
         ],
     )
+
+    def clean_font_color(self):
+        font_color = self.cleaned_data['font_color']
+        if self.cleaned_data.get('rolling_stock_or_not') == NON_ROLLING_STOCK:
+            return font_color
+        if font_color not in VALID_FONTS:
+            raise forms.ValidationError(
+                FORM_ERRORS['multiple']['invalid_color'],
+            )
+        return font_color
+
+    def clean_border_color(self):
+        border_color = self.cleaned_data['border_color']
+        if self.cleaned_data.get('rolling_stock_or_not') == NON_ROLLING_STOCK:
+            return border_color
+        if border_color not in VALID_FONTS:
+            raise forms.ValidationError(
+                FORM_ERRORS['multiple']['invalid_color'],
+            )
+        return border_color
