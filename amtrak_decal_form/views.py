@@ -37,4 +37,4 @@ def validate_user_info(request):
 
     context = simplejson.dumps(context)
 
-    return HttpResponse(context, mimetype='application/json')
+    return HttpResponse(context, content_type='application/json')
