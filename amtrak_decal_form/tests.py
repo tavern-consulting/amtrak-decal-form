@@ -1,7 +1,13 @@
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
-from amtrak_decal_form.forms import UserInfoForm, DecalSpecForm, FORM_ERRORS
+from amtrak_decal_form.forms import (
+    DecalSpecForm,
+    FORM_ERRORS,
+    NON_ROLLING_STOCK,
+    ROLLING_STOCK,
+    UserInfoForm,
+)
 
 
 class SmokeTestCase(TestCase):
@@ -102,13 +108,45 @@ class FormTestCase(TestCase):
                     'This field is required.',
                 )
 
+
+class UserPanelFormTestCase(TestCase):
     def test_alternate_number_must_be_different(self):
-        params = self.params
-        params['alternate_phone_number'] = params['phone_number']
-        r = self.client.post(self.url, params)
-        self.assertFormError(
-            r,
-            'user_form',
-            'alternate_phone_number',
-            FORM_ERRORS['alternate_phone_number']['duplicate'],
+        params = {
+            'phone_number': '123-456-7890',
+            'alternate_phone_number': '123-456-7890',
+        }
+        form = UserInfoForm(data=params)
+        form.is_valid()
+        self.assertEqual(
+            form.errors['alternate_phone_number'],
+            [FORM_ERRORS['alternate_phone_number']['duplicate']],
         )
+
+
+class DecalSpecFormTestCase(TestCase):
+    def test_rolling_stock_only_allows_subset_of_colors(self):
+        params = {
+            'rolling_stock_or_not': ROLLING_STOCK,
+            'font_color': '#789456',
+            'border_color': '#789456',
+        }
+        form = DecalSpecForm(data=params)
+        form.is_valid()
+        colored_fields = ['font_color', 'border_color']
+        for colored_field in colored_fields:
+            self.assertEqual(
+                form.errors[colored_field],
+                [FORM_ERRORS['multiple']['invalid_color']],
+            )
+
+    def test_non_rolling_stock_allows_all_colors(self):
+        params = {
+            'rolling_stock_or_not': NON_ROLLING_STOCK,
+            'font_color': '#789456',
+            'border_color': '#789456',
+        }
+        form = DecalSpecForm(data=params)
+        form.is_valid()
+        colored_fields = ['font_color', 'border_color']
+        for colored_field in colored_fields:
+            assert colored_field not in form.errors
