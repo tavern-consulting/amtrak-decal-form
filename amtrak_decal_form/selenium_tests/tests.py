@@ -31,3 +31,11 @@ class UserPanelTestCase(LiveServerTestCase):
         index_page.validate_and_continue()
         with self.assertRaises(AssertionError):
             index_page.assert_on_decal_form()
+
+    def test_form_errors(self):
+        self.driver.get(self.live_server_url)
+        index_page = IndexPage(self.driver)
+
+        index_page.validate_and_continue()
+        form_errors = index_page.get_form_errors()
+        assert form_errors

@@ -24,6 +24,12 @@ class UserPanel(object):
         element = self.driver.find_element_by_id('id_rolling_stock_or_not')
         assert element.is_displayed()
 
+    def get_form_errors(self):
+        return [
+            element.text for element in
+            self.driver.find_elements_by_css_selector('.form-errors li')
+        ]
+
 
 class IndexPage(UserPanel):
     def __init__(self, driver):

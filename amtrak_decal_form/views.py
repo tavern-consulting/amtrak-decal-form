@@ -33,6 +33,7 @@ def validate_user_info(request):
     if not user_form.is_valid():
         context = {
             'success': False,
+            'errors': str(user_form.errors),
         }
 
     context = simplejson.dumps(context)

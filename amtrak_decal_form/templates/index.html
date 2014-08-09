@@ -72,6 +72,8 @@ Second pane:
 -->
 <form action="{% url 'index' %}" method="post">
         {% csrf_token %}
+        <div class='form-errors'>
+        </div>
         <div class="pane-1">
             {{ user_form.as_ul }}
             <a href="#" class="continue btn btn-primary">Continue</a>

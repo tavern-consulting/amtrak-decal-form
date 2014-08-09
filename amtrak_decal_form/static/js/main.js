@@ -9,6 +9,8 @@ $( document ).ready(function() {
                 if (data.success) {
                     $('.pane-2').removeClass('hide');
                     $('.pane-1').addClass('hide');
+                } else {
+                    $('.form-errors').html(data.errors);
                 }
             }
         });
