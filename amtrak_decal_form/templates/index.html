@@ -68,18 +68,30 @@ Second pane:
     submit
 
 -->
-<form action="{% url 'index' %}" method="post">
-	{% csrf_token %}
-	<div class='form-errors'>
+<div class="container">
+
+	<div class="row-fluid">
+		<div class="span12">
+			<form action="{% url 'index' %}" method="post">
+				{% csrf_token %}
+				<div id="user-info-form">
+					<div class='form-errors'></div>
+					<ul>
+						{{ user_form.as_ul }}
+					</ul>
+					<a href="#" class="continue btn btn-primary">Continue</a>
+				</div>
+				<div id="decal-spec-form" class="hide">
+					<ul>
+						{{ decal_form.as_ul }}
+					</ul>
+				</div>
+			</form>
+		</div>
 	</div>
-	<div class="pane-1">
-		{{ user_form.as_ul }}
-		<a href="#" class="continue btn btn-primary">Continue</a>
-	</div>
-	<div class="hide pane-2">
-		{{ decal_form.as_ul }}
-	</div>
-</form>
+	
+</div>
+
 </body>
 
 <!-- Get jQuery -->
@@ -87,7 +99,5 @@ Second pane:
 <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}?t={% now 'U' %}"></script>
 <script type="text/javascript" src="{% static 'lib/cycle2.min.js' %}?t={% now 'U' %}"></script>
 <script type="text/javascript" src="{% static 'js/main.js' %}?t={% now 'U' %}"></script>
-
-
 
 </html>

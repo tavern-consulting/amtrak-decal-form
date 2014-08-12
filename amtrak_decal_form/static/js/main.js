@@ -7,8 +7,8 @@ $( document ).ready(function() {
             data: $("form").serialize(),
             success: function(data) {
                 if (data.success) {
-                    $('.pane-2').removeClass('hide');
-                    $('.pane-1').addClass('hide');
+                    $('#decal-spec-form').removeClass('hide');
+                    $('#user-info-form').addClass('hide');
                 } else {
                     $('.form-errors').html(data.errors);
                 }

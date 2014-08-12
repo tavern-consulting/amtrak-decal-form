@@ -2,3 +2,38 @@
 /* CSS Document */
 
 @import url('reset.css');
+
+/*
+Useful Classes
+*/
+
+.transition {
+	-webkit-transition: background .25s ease-in-out;
+	-moz-transition: background .25s ease-in-out;
+	-ms-transition: background .25s ease-in-out;
+	-o-transition: background .25s ease-in-out;
+	transition: background .25s ease-in-out;}
+
+/*
+Main Body
+*/
+
+
+body {
+	background-color: #02567B;
+	padding: 50px 0;}
+
+.container {
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	background-color: #ecf0f1;
+	padding: 40px;
+	box-sizing: border-box;}
+
+
+/* Form */
+
+ul {}
+
+li {
+	list-style-type: none;}
