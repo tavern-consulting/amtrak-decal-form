@@ -17,9 +17,16 @@ FORM_ERRORS = {
 }
 
 
-VALID_FONTS = (
-    '#FFFFFF',
-    '#000000',
+VALID_COLORS = (
+    '#000000',  # Black
+    '#000080',  # Navy Blue
+    '#1375B3',  # Amtrak Blue
+    '#BD2031',  # Cardinal Red
+    '#FFFF00',  # Yellow
+    '#FFFFFF',  # White
+
+    '#CLRREC',  # Clear Receptive
+    '#REFFFF',  # Reflective White
 )
 
 
@@ -122,7 +129,7 @@ class DecalSpecForm(forms.Form):
         font_color = self.cleaned_data['font_color']
         if self.cleaned_data.get('rolling_stock_or_not') == NON_ROLLING_STOCK:
             return font_color
-        if font_color not in VALID_FONTS:
+        if font_color not in VALID_COLORS:
             raise forms.ValidationError(
                 FORM_ERRORS['multiple']['invalid_color'],
             )
@@ -132,7 +139,7 @@ class DecalSpecForm(forms.Form):
         border_color = self.cleaned_data['border_color']
         if self.cleaned_data.get('rolling_stock_or_not') == NON_ROLLING_STOCK:
             return border_color
-        if border_color not in VALID_FONTS:
+        if border_color not in VALID_COLORS:
             raise forms.ValidationError(
                 FORM_ERRORS['multiple']['invalid_color'],
             )
