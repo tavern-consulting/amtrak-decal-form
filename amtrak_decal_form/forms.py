@@ -75,7 +75,7 @@ class USStateSelect(forms.Select):
 class UserInfoForm(forms.Form):
     name = forms.CharField(
         widget=forms.TextInput({
-            'class': 'input-min',
+            'class': '',
         }),
     )
     department = forms.ChoiceField(
@@ -88,14 +88,16 @@ class UserInfoForm(forms.Form):
 
     line1 = forms.CharField(label='Street', required=True, max_length=50)
     line2 = forms.CharField(
-        label='Second Street Address',
+        label='Street 2',
         required=False,
         max_length=50,
     )
     city = forms.CharField(label='City', max_length=50)
     state = forms.CharField(
         label='State',
-        widget=USStateSelect,
+        widget=USStateSelect({
+            'class': 'input-mini',
+        }),
         max_length=50,
     )
     zip_code = USZipCodeField(label='Zip Code')
