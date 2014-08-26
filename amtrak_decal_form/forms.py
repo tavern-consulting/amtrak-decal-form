@@ -62,7 +62,11 @@ NON_ROLLING_STOCK = '2'
 
 
 class UserInfoForm(forms.Form):
-    name = forms.CharField()
+    name = forms.CharField(
+        widget=forms.TextInput({
+            'class': 'input-min',
+        }),
+    )
     department = forms.ChoiceField(
         choices=[
             (1, 'Foo'),
