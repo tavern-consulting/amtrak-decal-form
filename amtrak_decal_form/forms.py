@@ -20,13 +20,40 @@ FORM_ERRORS = {
 VALID_COLORS = (
     '#000000',  # Black
     '#000080',  # Navy Blue
-    '#1375B3',  # Amtrak Blue
+    '#005983',  # Amtrak Blue
     '#BD2031',  # Cardinal Red
     '#FFFF00',  # Yellow
     '#FFFFFF',  # White
 
     '#CLRREC',  # Clear Receptive
     '#REFFFF',  # Reflective White
+)
+VALID_FONTS = (
+    'Frutiger 55',
+    'Frutiger Bold 55',
+    'Frutiger Italic 55',
+    'Helvetica',
+    'Helvetica Bold',
+    'Helvetica Italic',
+)
+
+
+VALID_DEPARTMENTS = (
+    'Administrative Support',
+    'Communications',
+    'Customer Service',
+    'Engineering',
+    'Finance',
+    'Government Affairs',
+    'Human Capital',
+    'Information Technology',
+    'Legal',
+    'Marketing',
+    'Mechanical',
+    'Research & Strategy',
+    'Safety & Security',
+    'Supply Chain & Logistics',
+    'Transportation',
 )
 
 
@@ -113,15 +140,15 @@ class DecalSpecForm(forms.Form):
         choices=[
             (1, 'N/A'),
             (2, 'Single'),
+            (3, 'Dounle'),
         ],
     )
     border_thickness = forms.CharField()
     required_substrate = forms.ChoiceField(
         choices=[
-            (1, 'What'),
-            (2, 'Is'),
-            (3, 'A'),
-            (4, 'Substrate?'),
+            (1, 'Vinyl'),
+            (2, 'Lexedge (plastic)'),
+            (3, 'Luminescent'),
         ],
     )
 
