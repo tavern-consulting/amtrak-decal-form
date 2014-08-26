@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load render_field %}
 
 <!DOCTYPE html>
 <html>
@@ -77,6 +78,7 @@ Second pane:
 				<div id="user-info-form">
 					<div class='form-errors'></div>
 					<ul>
+                        {% render_field user_form 'name' %}
 						{{ user_form.as_ul }}
 					</ul>
 					<a href="#" class="continue btn btn-primary">Continue</a>
