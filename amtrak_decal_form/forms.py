@@ -3,7 +3,6 @@ from django import forms
 from localflavor.us.forms import (
     USPhoneNumberField,
     USZipCodeField,
-    USStateSelect,
 )
 
 FORM_ERRORS = {
@@ -59,6 +58,15 @@ VALID_DEPARTMENTS = (
 
 ROLLING_STOCK = '1'
 NON_ROLLING_STOCK = '2'
+
+
+class USStateSelect(forms.Select):
+    """
+    A Select widget that uses a list of U.S. states/territories as its choices.
+    """
+    def __init__(self, attrs=None):
+        from localflavor.us.us_states import US_STATES
+        super(USStateSelect, self).__init__(attrs, choices=US_STATES)
 
 
 class UserInfoForm(forms.Form):
