@@ -66,7 +66,10 @@ class USStateSelect(forms.Select):
     """
     def __init__(self, attrs=None):
         from localflavor.us.us_states import US_STATES
-        super(USStateSelect, self).__init__(attrs, choices=US_STATES)
+        choices = [
+            (s, s) for s, _ in US_STATES
+        ]
+        super(USStateSelect, self).__init__(attrs, choices=choices)
 
 
 class UserInfoForm(forms.Form):
