@@ -100,10 +100,23 @@ class UserInfoForm(forms.Form):
         }),
         max_length=50,
     )
-    zip_code = USZipCodeField(label='Zip Code')
-
-    phone_number = USPhoneNumberField()
-    alternate_phone_number = USPhoneNumberField(required=False)
+    zip_code = USZipCodeField(
+        label='Zip Code',
+        widget=forms.TextInput({
+            'class': 'input-small',
+        }),
+    )
+    phone_number = USPhoneNumberField(
+        widget=forms.TextInput({
+            'class': 'input-medium',
+        }),
+    )
+    alternate_phone_number = USPhoneNumberField(
+        required=False,
+        widget=forms.TextInput({
+            'class': 'input-medium',
+        }),
+    )
     cost_center = forms.CharField()
     wbs_element = forms.CharField()
     account = forms.CharField()

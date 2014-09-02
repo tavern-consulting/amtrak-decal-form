@@ -37,13 +37,18 @@ body {
 	padding: 20px;}
 
 .pane label {
-	float: left;}
+	float: left;
+    line-height: 30px;
+    margin-bottom: 0;}
 .pane input,
 .pane select {
 	float: right;
 	margin-bottom: 10px;}
 .continue {
 	text-align: center;}
+.city_state_zip label {
+}
+
 
 /* Form */
 

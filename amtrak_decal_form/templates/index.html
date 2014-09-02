@@ -34,7 +34,11 @@
 							</div>
 							<div class="cf">
 								{% render_field user_form 'city' %}
+							</div>
+							<div class="cf">
 								{% render_field user_form 'state' %}
+							</div>
+							<div class="cf">
 								{% render_field user_form 'zip_code' %}
 							</div>
 							<div class="cf">
@@ -67,9 +71,7 @@
 					<div class='form-errors'></div>					
 				</div>
 				<div id="decal-spec-form" class="hide">
-					<ul>
-						{{ decal_form.as_ul }}
-					</ul>
+					{{ decal_form.as_ul }}
 				</div>
 			</form>
 		</div>
