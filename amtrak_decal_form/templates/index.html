@@ -20,7 +20,7 @@
 		<div class="row">
 			<form action="{% url 'index' %}" method="post">
 				{% csrf_token %}
-				<div id="user-info-form">
+				<div id="user-info-form" class="hide">
 					<div class="span6">
 						<div class="pane">
 							<div class="cf">
@@ -70,8 +70,47 @@
 					</div>
 					<div class='form-errors'></div>					
 				</div>
-				<div id="decal-spec-form" class="hide">
-					{{ decal_form.as_ul }}
+				<div id="decal-spec-form" class="">
+                    <div class="span12">
+                        <div class="pane">
+							<div class="cf">
+                                {% render_field decal_form 'rolling_stock_or_not' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'placard_or_decal' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'fleet_type' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'font_color' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'border_color' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'description' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'font_face' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'font_size' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'html' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'border_type' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'border_thickness' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'required_substrate' %}
+							</div>
+                        </div>
+                    </div>
 				</div>
 			</form>
 		</div>

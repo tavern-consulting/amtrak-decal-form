@@ -41,7 +41,8 @@ body {
     line-height: 30px;
     margin-bottom: 0;}
 .pane input,
-.pane select {
+.pane select,
+.pane textarea {
 	float: right;
 	margin-bottom: 10px;}
 .continue {
