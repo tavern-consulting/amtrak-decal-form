@@ -18,6 +18,12 @@
 
 <div class="container">
 		<div class="row">
+            <div id="error-alert" class="span12">
+                <div class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  <strong>Warning!</strong> You have form errors. Please check the fields below.
+                </div>
+            </div>
 			<form action="{% url 'index' %}" method="post">
 				{% csrf_token %}
 				<div id="user-info-form">
