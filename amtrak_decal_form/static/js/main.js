@@ -8,13 +8,13 @@ $( document ).ready(function() {
     });
     $('a.continue').click(function(e) {
         e.preventDefault();
-        $errorMessage.addClass('hide');
         $.ajax({
             type: "POST",
             url: "validate_user_info/",
             data: $("form").serialize(),
             success: function(data) {
                 if (data.success) {
+                    $errorMessage.addClass('hide');
                     $('#decal-spec-form').removeClass('hide');
                     $('#user-info-form').addClass('hide');
                 $('a.continue').removeClass('continue').addClass('finish').text('Finish');
