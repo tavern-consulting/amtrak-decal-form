@@ -162,9 +162,10 @@ class UserInfoForm(forms.Form):
 
 class DecalSpecForm(forms.Form):
     rolling_stock_or_not = forms.ChoiceField(
+        label='Will this order be placed on rolling stock?',
         choices=[
-            (ROLLING_STOCK, 'Rolling Stock'),
-            (NON_ROLLING_STOCK, 'Non-Rolling Stock'),
+            (ROLLING_STOCK, 'Yes'),
+            (NON_ROLLING_STOCK, 'No'),
         ],
         widget=forms.RadioSelect(),
     )
