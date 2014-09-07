@@ -192,23 +192,42 @@ class DecalSpecForm(forms.Form):
             'class': 'input-medium',
         }),
     )
-    font_size = forms.CharField(max_length=3)
+    font_size = forms.ChoiceField(
+        choices=[
+            (8, 'Very Small'),
+            (12, 'Small'),
+            (16, 'Medium'),
+            (24, 'Large'),
+            (36, 'Very Large'),
+        ],
+    )
     html = forms.CharField(widget=forms.Textarea)
     border_type = forms.ChoiceField(
         choices=[
-            (1, 'N/A'),
-            (2, 'Single'),
-            (3, 'Double'),
+            ('None', 'None'),
+            ('Single', 'Single'),
+            ('Double', 'Double'),
         ],
         widget=forms.Select({
             'class': 'input-small',
         }),
     )
-    border_thickness = forms.CharField()
+    border_thickness = forms.ChoiceField(
+        choices=[
+            (5, 'Very Thin'),
+            (10, 'Thin'),
+            (15, 'Medium'),
+            (20, 'Thick'),
+            (25, 'Very Thick'),
+        ],
+        widget=forms.Select({
+            'class': 'input-medium',
+        }),
+    )
     required_substrate = forms.ChoiceField(
         choices=VALID_SUBSTRATES,
         widget=forms.Select({
-            'class': 'input-medium',
+            'class': 'input-large',
         }),
     )
 
@@ -231,3 +250,9 @@ class DecalSpecForm(forms.Form):
                 FORM_ERRORS['multiple']['invalid_color'],
             )
         return border_color
+
+    def clean_border_thickness(self):
+        border_thickness = self.cleaned_data['border_thickness']
+        if self.cleaned_data.get('border_type') == 'None':
+            return ''
+        return border_thickness
