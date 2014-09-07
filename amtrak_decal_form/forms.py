@@ -55,6 +55,31 @@ VALID_DEPARTMENTS = (
     ('Transportation', 'Transportation'),
 )
 
+VALID_FLEET_TYPES = (
+    ('F59', 'F59'),
+    ('P32', 'P32'),
+    ('P40', 'P40'),
+    ('P42', 'P42'),
+    ('AEM-7', 'AEM-7'),
+    ('HHP', 'HHP'),
+    ('ACS-64', 'ACS-64'),
+    ('Acela', 'Acela'),
+    ('Amfleet I', 'Amfleet I'),
+    ('Amfleet II', 'Amfleet II'),
+    ('Viewliner', 'Viewliner'),
+    ('Horizon', 'Horizon'),
+    ('Heritage', 'Heritage'),
+    ('Superliner I', 'Superliner I'),
+    ('Superliner II', 'Superliner II'),
+    ('Surfliner', 'Surfliner'),
+    ('Auto Carrier', 'Auto Carrier'),
+    ('Viewliner II', 'Viewliner II'),
+    ('California Car', 'California Car'),
+    ('Surfliner', 'Surfliner'),
+    ('Comet', 'Comet'),
+    ('NPCU', 'NPCU (specify in description)'),
+)
+
 
 ROLLING_STOCK = '1'
 NON_ROLLING_STOCK = '2'
@@ -144,12 +169,7 @@ class DecalSpecForm(forms.Form):
         ],
         widget=forms.RadioSelect(),
     )
-    fleet_type = forms.ChoiceField(
-        choices=[
-            (1, 'Fleet'),
-            (2, 'Type'),
-        ]
-    )
+    fleet_type = forms.ChoiceField(choices=VALID_FLEET_TYPES)
     font_color = forms.CharField(max_length=7)
     border_color = forms.CharField(max_length=7)
     description = forms.CharField(widget=forms.Textarea)
