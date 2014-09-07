@@ -179,7 +179,12 @@ class DecalSpecForm(forms.Form):
     fleet_type = forms.ChoiceField(choices=VALID_FLEET_TYPES)
     font_color = forms.CharField(max_length=7)
     border_color = forms.CharField(max_length=7)
-    description = forms.CharField(widget=forms.Textarea)
+    description = forms.CharField(
+        widget=forms.Textarea({
+            'rows': 6,
+            'cols': 40,
+        })
+    )
     font_face = forms.ChoiceField(
         choices=VALID_FONTS,
         widget=forms.Select({
