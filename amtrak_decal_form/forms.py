@@ -227,7 +227,7 @@ class DecalSpecForm(forms.Form):
     required_substrate = forms.ChoiceField(
         choices=VALID_SUBSTRATES,
         widget=forms.Select({
-            'class': 'input-medium',
+            'class': 'input-large',
         }),
     )
 
