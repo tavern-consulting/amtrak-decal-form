@@ -80,6 +80,12 @@ VALID_FLEET_TYPES = (
     ('Viewliner II', 'Viewliner II'),
     ('Viewliner', 'Viewliner'),
 )
+VALID_SUBSTRATES = (
+    ('Vinyl (Solid Color)', 'Vinyl (Solid Color)'),
+    ('Vinyl (Reflective)', 'Vinyl (Reflective)'),
+    ('Vinyl (Luminescent)', 'Vinyl (Luminescent)'),
+    ('Lexedge (Plastic)', 'Lexedge (Plastic)'),
+)
 
 
 ROLLING_STOCK = '1'
@@ -194,11 +200,7 @@ class DecalSpecForm(forms.Form):
     )
     border_thickness = forms.CharField()
     required_substrate = forms.ChoiceField(
-        choices=[
-            (1, 'Vinyl'),
-            (2, 'Lexedge (plastic)'),
-            (3, 'Luminescent'),
-        ],
+        choices=VALID_SUBSTRATES,
         widget=forms.Select({
             'class': 'input-medium',
         }),
