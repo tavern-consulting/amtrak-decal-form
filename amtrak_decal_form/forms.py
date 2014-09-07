@@ -192,7 +192,7 @@ class DecalSpecForm(forms.Form):
         choices=[
             (1, 'N/A'),
             (2, 'Single'),
-            (3, 'Dounle'),
+            (3, 'Double'),
         ],
         widget=forms.Select({
             'class': 'input-small',
