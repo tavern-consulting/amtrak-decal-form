@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+    var $errorMessage = $('#error-alert');
     $('input').focus(function() {
         $(this).removeClass('validation-error');
     });
@@ -7,6 +8,7 @@ $( document ).ready(function() {
     });
     $('a.continue').click(function(e) {
         e.preventDefault();
+        $errorMessage.addClass('hide');
         $.ajax({
             type: "POST",
             url: "validate_user_info/",
@@ -26,7 +28,7 @@ $( document ).ready(function() {
                             element.tooltip();
                         }
                     }
-                    $('.form-errors').html(data.errors);
+                    $errorMessage.removeClass('hide');
                 }
             }
         });
