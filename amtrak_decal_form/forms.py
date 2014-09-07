@@ -153,7 +153,12 @@ class DecalSpecForm(forms.Form):
     font_color = forms.CharField(max_length=7)
     border_color = forms.CharField(max_length=7)
     description = forms.CharField(widget=forms.Textarea)
-    font_face = forms.ChoiceField(choices=VALID_FONTS)
+    font_face = forms.ChoiceField(
+        choices=VALID_FONTS,
+        widget=forms.Select({
+            'class': 'input-medium',
+        }),
+    )
     font_size = forms.CharField(max_length=3)
     html = forms.CharField(widget=forms.Textarea)
     border_type = forms.ChoiceField(
@@ -162,6 +167,9 @@ class DecalSpecForm(forms.Form):
             (2, 'Single'),
             (3, 'Dounle'),
         ],
+        widget=forms.Select({
+            'class': 'input-small',
+        }),
     )
     border_thickness = forms.CharField()
     required_substrate = forms.ChoiceField(
@@ -170,6 +178,9 @@ class DecalSpecForm(forms.Form):
             (2, 'Lexedge (plastic)'),
             (3, 'Luminescent'),
         ],
+        widget=forms.Select({
+            'class': 'input-medium',
+        }),
     )
 
     def clean_font_color(self):
