@@ -80,6 +80,12 @@ VALID_FLEET_TYPES = (
     ('Viewliner II', 'Viewliner II'),
     ('Viewliner', 'Viewliner'),
 )
+VALID_SUBSTRATES = (
+    ('Vinyl (Solid Color)', 'Vinyl (Solid Color)'),
+    ('Vinyl (Reflective)', 'Vinyl (Reflective)'),
+    ('Vinyl (Luminescent)', 'Vinyl (Luminescent)'),
+    ('Lexedge (Plastic)', 'Lexedge (Plastic)'),
+)
 
 
 ROLLING_STOCK = '1'
@@ -156,9 +162,10 @@ class UserInfoForm(forms.Form):
 
 class DecalSpecForm(forms.Form):
     rolling_stock_or_not = forms.ChoiceField(
+        label='Will this order be placed on rolling stock?',
         choices=[
-            (ROLLING_STOCK, 'Rolling Stock'),
-            (NON_ROLLING_STOCK, 'Non-Rolling Stock'),
+            (ROLLING_STOCK, 'Yes'),
+            (NON_ROLLING_STOCK, 'No'),
         ],
         widget=forms.RadioSelect(),
     )
@@ -173,7 +180,12 @@ class DecalSpecForm(forms.Form):
     fleet_type = forms.ChoiceField(choices=VALID_FLEET_TYPES)
     font_color = forms.CharField(max_length=7)
     border_color = forms.CharField(max_length=7)
-    description = forms.CharField(widget=forms.Textarea)
+    description = forms.CharField(
+        widget=forms.Textarea({
+            'rows': 6,
+            'cols': 40,
+        })
+    )
     font_face = forms.ChoiceField(
         choices=VALID_FONTS,
         widget=forms.Select({
@@ -186,7 +198,7 @@ class DecalSpecForm(forms.Form):
         choices=[
             (1, 'N/A'),
             (2, 'Single'),
-            (3, 'Dounle'),
+            (3, 'Double'),
         ],
         widget=forms.Select({
             'class': 'input-small',
@@ -194,11 +206,7 @@ class DecalSpecForm(forms.Form):
     )
     border_thickness = forms.CharField()
     required_substrate = forms.ChoiceField(
-        choices=[
-            (1, 'Vinyl'),
-            (2, 'Lexedge (plastic)'),
-            (3, 'Luminescent'),
-        ],
+        choices=VALID_SUBSTRATES,
         widget=forms.Select({
             'class': 'input-medium',
         }),
