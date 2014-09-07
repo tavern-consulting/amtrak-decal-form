@@ -28,31 +28,31 @@ VALID_COLORS = (
     '#REFFFF',  # Reflective White
 )
 VALID_FONTS = (
-    'Frutiger 55',
-    'Frutiger Bold 55',
-    'Frutiger Italic 55',
-    'Helvetica',
-    'Helvetica Bold',
-    'Helvetica Italic',
+    ('Frutiger 55', 'Frutiger 55'),
+    ('Frutiger Bold 55', 'Frutiger Bold 55'),
+    ('Frutiger Italic 55', 'Frutiger Italic 55'),
+    ('Helvetica', 'Helvetica'),
+    ('Helvetica Bold', 'Helvetica Bold'),
+    ('Helvetica Italic', 'Helvetica Italic'),
 )
 
 
 VALID_DEPARTMENTS = (
-    'Administrative Support',
-    'Communications',
-    'Customer Service',
-    'Engineering',
-    'Finance',
-    'Government Affairs',
-    'Human Capital',
-    'Information Technology',
-    'Legal',
-    'Marketing',
-    'Mechanical',
-    'Research & Strategy',
-    'Safety & Security',
-    'Supply Chain & Logistics',
-    'Transportation',
+    ('Administrative Support', 'Administrative Support'),
+    ('Communications', 'Communications'),
+    ('Customer Service', 'Customer Service'),
+    ('Engineering', 'Engineering'),
+    ('Finance', 'Finance'),
+    ('Government Affairs', 'Government Affairs'),
+    ('Human Capital', 'Human Capital'),
+    ('Information Technology', 'Information Technology'),
+    ('Legal', 'Legal'),
+    ('Marketing', 'Marketing'),
+    ('Mechanical', 'Mechanical'),
+    ('Research and Strategy', 'Research and Strategy'),
+    ('Safety and Security', 'Safety and Security'),
+    ('Supply Chain and Logistics', 'Supply Chain and Logistics'),
+    ('Transportation', 'Transportation'),
 )
 
 
@@ -78,12 +78,7 @@ class UserInfoForm(forms.Form):
             'class': '',
         }),
     )
-    department = forms.ChoiceField(
-        choices=[
-            (1, 'Foo'),
-            (2, 'Bar'),
-        ]
-    )
+    department = forms.ChoiceField(choices=VALID_DEPARTMENTS)
     location = forms.CharField()
 
     line1 = forms.CharField(label='Street', required=True, max_length=50)
@@ -158,12 +153,7 @@ class DecalSpecForm(forms.Form):
     font_color = forms.CharField(max_length=7)
     border_color = forms.CharField(max_length=7)
     description = forms.CharField(widget=forms.Textarea)
-    font_face = forms.ChoiceField(
-        choices=[
-            (1, 'Times New Roman'),
-            (2, 'Arial'),
-        ],
-    )
+    font_face = forms.ChoiceField(choices=VALID_FONTS)
     font_size = forms.CharField(max_length=3)
     html = forms.CharField(widget=forms.Textarea)
     border_type = forms.ChoiceField(
