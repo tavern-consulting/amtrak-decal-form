@@ -17,13 +17,15 @@
 <img src="{% static 'img/logo.jpg' %}" class="logo" alt="Amtrak Decals">
 
 <div class="container">
-		<div class="row">
-            <div id="error-alert" class="span12">
+		<div id="error-alert" class="row hide">
+            <div class="span12">
                 <div class="alert alert-error">
-                  <button type="button" class="close" data-dismiss="alert">&times;</button>
-                  <strong>Warning!</strong> You have form errors. Please check the fields below.
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Warning!</strong> You have form errors. Please check the fields below.
                 </div>
             </div>
+        </div>
+		<div class="row">
 			<form action="{% url 'index' %}" method="post">
 				{% csrf_token %}
 				<div id="user-info-form">
