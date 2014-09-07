@@ -20,7 +20,7 @@
 		<div class="row">
 			<form action="{% url 'index' %}" method="post">
 				{% csrf_token %}
-				<div id="user-info-form" class="hide">
+				<div id="user-info-form">
 					<div class="span6">
 						<div class="pane">
 							<div class="cf">
@@ -70,7 +70,7 @@
 					</div>
 					<div class='form-errors'></div>					
 				</div>
-				<div id="decal-spec-form" class="">
+				<div id="decal-spec-form" class="hide">
                     <div class="span6">
                         <div class="pane">
 							<div class="cf">
