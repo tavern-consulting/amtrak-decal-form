@@ -33,4 +33,11 @@ $( document ).ready(function() {
             }
         });
     });
+    $('#border-type select').change(function() {
+        if($(this).val() == "None") {
+            $('#border-thickness').addClass('hide');
+        } else {
+            $('#border-thickness').removeClass('hide');
+        }
+    });
 });
