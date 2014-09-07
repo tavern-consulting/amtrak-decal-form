@@ -56,28 +56,29 @@ VALID_DEPARTMENTS = (
 )
 
 VALID_FLEET_TYPES = (
+    ('ACS-64', 'ACS-64'),
+    ('AEM-7', 'AEM-7'),
     ('F59', 'F59'),
+    ('HHP', 'HHP'),
     ('P32', 'P32'),
     ('P40', 'P40'),
     ('P42', 'P42'),
-    ('AEM-7', 'AEM-7'),
-    ('HHP', 'HHP'),
-    ('ACS-64', 'ACS-64'),
+
     ('Acela', 'Acela'),
     ('Amfleet I', 'Amfleet I'),
     ('Amfleet II', 'Amfleet II'),
-    ('Viewliner', 'Viewliner'),
-    ('Horizon', 'Horizon'),
+    ('Auto Carrier', 'Auto Carrier'),
+    ('California Car', 'California Car'),
+    ('Comet', 'Comet'),
     ('Heritage', 'Heritage'),
+    ('Horizon', 'Horizon'),
+    ('NPCU', 'NPCU (specify in description)'),
     ('Superliner I', 'Superliner I'),
     ('Superliner II', 'Superliner II'),
     ('Surfliner', 'Surfliner'),
-    ('Auto Carrier', 'Auto Carrier'),
-    ('Viewliner II', 'Viewliner II'),
-    ('California Car', 'California Car'),
     ('Surfliner', 'Surfliner'),
-    ('Comet', 'Comet'),
-    ('NPCU', 'NPCU (specify in description)'),
+    ('Viewliner II', 'Viewliner II'),
+    ('Viewliner', 'Viewliner'),
 )
 
 
