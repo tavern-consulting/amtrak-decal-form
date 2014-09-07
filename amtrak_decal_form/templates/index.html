@@ -104,9 +104,11 @@
 							</div>
 							<div class="cf">
                                 {% render_field decal_form 'font_face' %}
+                                <a href="#font-face-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
 							</div>
 							<div class="cf">
                                 {% render_field decal_form 'font_size' %}
+                                <a href="#font-size-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
 							</div>
                             {% comment %}
 							<div class="cf">
@@ -115,9 +117,11 @@
                             {% endcomment %}
 							<div class="cf">
                                 {% render_field decal_form 'border_type' %}
+                                <a href="#border-type-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
 							</div>
 							<div id="border-thickness" class="cf hide">
                                 {% render_field decal_form 'border_thickness' %}
+                                <a href="#border-thickness-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
 							</div>
 							<div class="cf">
                                 {% render_field decal_form 'required_substrate' %}
@@ -135,6 +139,63 @@
 			</div>
 		</div>	
 </div>
+
+<!-- Font Face Modal -->
+<div id="font-face-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Font Face Examples</h3>
+    </div>
+    <div class="modal-body">
+        <p>Table of examples.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<!-- Font Size Modal -->
+<div id="font-size-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Font Size Examples</h3>
+    </div>
+    <div class="modal-body">
+        <p>Table of examples.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<!-- Border Type Modal -->
+<div id="border-type-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Border Type Examples</h3>
+    </div>
+    <div class="modal-body">
+        <p>Table of examples.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<!-- Border Thickness Modal -->
+<div id="border-thickness-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Border Thickness Examples</h3>
+    </div>
+    <div class="modal-body">
+        <p>Table of examples.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
 
 </body>
 
