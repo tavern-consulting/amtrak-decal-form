@@ -196,7 +196,7 @@ class DecalSpecForm(forms.Form):
     html = forms.CharField(widget=forms.Textarea)
     border_type = forms.ChoiceField(
         choices=[
-            (1, 'N/A'),
+            (1, 'None'),
             (2, 'Single'),
             (3, 'Double'),
         ],
