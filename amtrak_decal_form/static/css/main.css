@@ -3,9 +3,9 @@
 
 @import url('reset.css');
 
-/*
-Useful Classes
-*/
+/* ------------------------------- */
+/* Useful Classes */
+/* ------------------------------- */
 
 .transition {
 	-webkit-transition: all .25s ease-in-out;
@@ -14,10 +14,9 @@ Useful Classes
 	-o-transition: all .25s ease-in-out;
 	transition: all .25s ease-in-out;}
 
-/*
-Main Body
-*/
-
+/* ------------------------------- */
+/* Main Body */
+/* ------------------------------- */
 
 body {
 	background-color: #005983;}
@@ -35,7 +34,6 @@ body {
 	background-color: #ecf0f1;
 	margin-bottom: 20px;
 	padding: 20px;}
-
 .pane label {
 	float: left;
     line-height: 30px;
@@ -45,6 +43,8 @@ body {
 .pane textarea {
 	float: right;
 	margin-bottom: 10px;}
+    
+/* Radio Button Inputs */
 .pane ul {
     padding: 0;
     list-style: none;}
@@ -67,23 +67,33 @@ body {
     margin: 9px 0 0 0;}
 .pane label + ul {
     margin: 30px 0 10px 0;}
-.continue {
-	text-align: center;}
+ 
+ /* Helper Links */
 .helper-link {
     margin: 8px;}
 
-/* Specific Field Tweaks */
+ /* Continue Button */
+.continue {
+	text-align: center;}
 
+/* Specific Field Tweaks */
 #id_description {
     width: 100%;
     box-sizing: border-box;}
-
+    
+/* ------------------------------- */
 /* Helper Modal Classes */
+/* ------------------------------- */
 
+/* Font Face Modal */
 #font-face-modal {}
 
+/* Font Size Modal */
 #font-size-modal {}
 
+
+
+/* Border Type Modal */
 #border-type-modal .border-type {
     display: block;
     width: 150px;
@@ -96,15 +106,16 @@ body {
 #border-type-modal .double {
     border-top: double 10px #000;}
 
-
+/* Border Thickness Modal */
 #border-thickness-modal {}
 
 
 
 
 
-
+/* ------------------------------- */
 /* Validation */
+/* ------------------------------- */
 
 input.validation-error {
     color: #B94A48;
