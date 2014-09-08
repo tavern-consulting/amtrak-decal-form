@@ -71,12 +71,40 @@ body {
 	text-align: center;}
 .helper-link {
     margin: 8px;}
-   
+
+/* Specific Field Tweaks */
+
 #id_description {
     width: 100%;
     box-sizing: border-box;}
 
-/* Form */
+/* Helper Modal Classes */
+
+#font-face-modal {}
+
+#font-size-modal {}
+
+#border-type-modal .border-type {
+    display: block;
+    width: 150px;
+    height: 1px;
+    margin: 4px auto;}
+    
+#border-type-modal .single {
+    border-top: solid 10px #000;}
+
+#border-type-modal .double {
+    border-top: double 10px #000;}
+
+
+#border-thickness-modal {}
+
+
+
+
+
+
+/* Validation */
 
 input.validation-error {
     color: #B94A48;

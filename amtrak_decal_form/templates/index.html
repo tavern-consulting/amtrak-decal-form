@@ -27,6 +27,7 @@
 		<div class="row">
 			<form action="{% url 'index' %}" method="post">
 				{% csrf_token %}
+                <!--
 				<div id="user-info-form">
 					<div class="span6">
 						<div class="pane">
@@ -77,7 +78,8 @@
 					</div>
 					<div class='form-errors'></div>					
 				</div>
-				<div id="decal-spec-form" class="hide">
+                -->
+				<div id="decal-spec-form" class="">
                     <div class="span6">
                         <div class="pane">
 							<div class="cf">
@@ -175,7 +177,16 @@
         <h3 id="myModalLabel">Border Type Examples</h3>
     </div>
     <div class="modal-body">
-        <p>Table of examples.</p>
+        <table class="table table-bordered">
+            <tr>
+                <td>Single</td>
+                <td><div class="border-type single"></div></td>
+            </tr>
+            <tr>
+                <td>Double</td>
+                <td><div class="border-type double"></div></td>
+            </tr>
+        </table>
     </div>
     <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -189,7 +200,7 @@
         <h3 id="myModalLabel">Border Thickness Examples</h3>
     </div>
     <div class="modal-body">
-        <p>Table of examples.</p>
+    
     </div>
     <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
