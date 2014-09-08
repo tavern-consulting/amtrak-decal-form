@@ -17,7 +17,8 @@ $( document ).ready(function() {
                     $errorMessage.addClass('hide');
                     $('#decal-spec-form').removeClass('hide');
                     $('#user-info-form').addClass('hide');
-                $('a.continue').removeClass('continue').addClass('finish').text('Finish');
+                $('a.continue').addClass('hide');
+                $('a.finish').removeClass('hide');
                 } else {
                     for (var key in data.errors) {
                         if (data.errors.hasOwnProperty(key)) {
@@ -32,6 +33,11 @@ $( document ).ready(function() {
                 }
             }
         });
+    });
+    $('a.finish').click(function(e) {
+        console.log('test');
+        e.preventDefault();
+        $('form').submit();
     });
     $('#border-type select').change(function() {
         if($(this).val() == "None") {
