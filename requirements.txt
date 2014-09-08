@@ -2,4 +2,4 @@ django==1.6
 django-localflavor
 gunicorn
 dj-static
-git+git://github.com/tavern-consulting/pywkher.git@master#egg=pywkher
+git+git://github.com/tavern-consulting/pywkher.git@83a8ffafcb6e8c8b93abd349d5a5e475276af1c6#egg=pywkher
