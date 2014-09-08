@@ -150,3 +150,19 @@ class DecalSpecFormTestCase(TestCase):
         colored_fields = ['font_color', 'border_color']
         for colored_field in colored_fields:
             assert colored_field not in form.errors
+
+    def test_border_thickness_is_ignored_if_no_border(self):
+        params = {
+            'rolling_stock_or_not': NON_ROLLING_STOCK,
+            'placard_or_decal': 1,
+            'fleet_type': 'ACS-64',
+            'font_color': '#789456',
+            'border_type': 'None',
+            'border_thickness': '5',
+            'font_face': 'Frutiger 55',
+            'font_size': '8',
+            'required_substrate': 'Lexedge (Plastic)',
+        }
+        form = DecalSpecForm(data=params)
+        assert form.is_valid()
+        self.assertEqual(form.cleaned_data['border_thickness'], '')

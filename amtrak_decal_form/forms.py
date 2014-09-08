@@ -179,8 +179,9 @@ class DecalSpecForm(forms.Form):
     )
     fleet_type = forms.ChoiceField(choices=VALID_FLEET_TYPES)
     font_color = forms.CharField(max_length=7)
-    border_color = forms.CharField(max_length=7)
+    border_color = forms.CharField(required=False, max_length=7)
     description = forms.CharField(
+        required=False,
         widget=forms.Textarea({
             'rows': 6,
             'cols': 40,
@@ -201,7 +202,7 @@ class DecalSpecForm(forms.Form):
             (36, 'Very Large'),
         ],
     )
-    html = forms.CharField(widget=forms.Textarea)
+    html = forms.CharField(required=False, widget=forms.Textarea)
     border_type = forms.ChoiceField(
         choices=[
             ('None', 'None'),
