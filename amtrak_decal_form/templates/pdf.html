@@ -11,8 +11,8 @@
 <h1>Amtrak Decal Request Form</h1>
 <table class="table table-bordered">
     <tr>
-        <td></td>
-        <td></td>
+        <td>{{ user_form.name.label }}</td>
+        <td>{{ user_form.name.value }}</td>
     </tr>
     <tr>
         <td></td>
@@ -59,3 +59,5 @@
 </body>
 
 </html>
+{{ user_form.as_table }}
+{{ deal_form.as_table }}

@@ -1,9 +1,25 @@
+from django.http import Http404, HttpResponse
 from django.shortcuts import render
+from django.template.loader import render_to_string
 from django.utils import simplejson
 from django.views.decorators.http import require_POST
-from django.http import Http404, HttpResponse
+
+from pywkher import generate_pdf
 
 from amtrak_decal_form.forms import UserInfoForm, DecalSpecForm
+
+
+class PDFResponse(HttpResponse):
+    """
+    Response object to send a PDF file.
+
+    The __init__ method takes two argments, `pdf_data` and `filename`. The
+    filename is the name of the pdf file when downloading. The extension ".pdf"
+    will be appended to the filename.
+    """
+    def __init__(self, pdf_data, filename):
+        super(PDFResponse, self).__init__(pdf_data, mimetype='application/pdf')
+        self['Content-Disposition'] = 'attachment; filename=%s.pdf' % filename
 
 
 def index(request):
@@ -13,7 +29,16 @@ def index(request):
         user_form = UserInfoForm(data=request.POST)
         decal_form = DecalSpecForm(data=request.POST)
         if user_form.is_valid() and decal_form.is_valid():
-            pass
+            html = render_to_string(
+                'pdf.html',
+                {
+                    'user_form': user_form,
+                    'decal_form': decal_form,
+                },
+            )
+
+            pdf = generate_pdf(html)
+            return PDFResponse(pdf, 'test.pdf')
 
     context = {
         'user_form': user_form,
