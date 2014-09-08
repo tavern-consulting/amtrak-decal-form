@@ -17,15 +17,15 @@ FORM_ERRORS = {
 
 
 VALID_COLORS = (
-    '#000000',  # Black
-    '#000080',  # Navy Blue
-    '#005983',  # Amtrak Blue
-    '#BD2031',  # Cardinal Red
-    '#FFFF00',  # Yellow
-    '#FFFFFF',  # White
+    ('#000000', 'Black'),
+    ('#000080', 'Navy Blue'),
+    ('#005983', 'Amtrak Blue'),
+    ('#BD2031', 'Cardinal Red'),
+    ('#FFFF00', 'Yellow'),
+    ('#FFFFFF', 'White'),
 
-    '#CLRREC',  # Clear Receptive
-    '#REFFFF',  # Reflective White
+    ('#CLRREC', 'Clear Receptive'),
+    ('#REFFFF', 'Reflective White'),
 )
 VALID_FONTS = (
     ('Frutiger 55', 'Frutiger 55'),
@@ -178,8 +178,8 @@ class DecalSpecForm(forms.Form):
         widget=forms.RadioSelect(),
     )
     fleet_type = forms.ChoiceField(choices=VALID_FLEET_TYPES)
-    font_color = forms.CharField(max_length=7)
-    border_color = forms.CharField(required=False, max_length=7)
+    font_color = forms.ChoiceField(choices=VALID_COLORS)
+    border_color = forms.ChoiceField(choices=VALID_COLORS, required=False)
     description = forms.CharField(
         required=False,
         widget=forms.Textarea({
