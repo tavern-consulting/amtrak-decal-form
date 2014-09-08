@@ -17,15 +17,15 @@ FORM_ERRORS = {
 
 
 VALID_COLORS = (
-    '#000000',  # Black
-    '#000080',  # Navy Blue
-    '#005983',  # Amtrak Blue
-    '#BD2031',  # Cardinal Red
-    '#FFFF00',  # Yellow
-    '#FFFFFF',  # White
+    ('#000000', 'Black'),
+    ('#000080', 'Navy Blue'),
+    ('#005983', 'Amtrak Blue'),
+    ('#BD2031', 'Cardinal Red'),
+    ('#FFFF00', 'Yellow'),
+    ('#FFFFFF', 'White'),
 
-    '#CLRREC',  # Clear Receptive
-    '#REFFFF',  # Reflective White
+    ('#CLRREC', 'Clear Receptive'),
+    ('#REFFFF', 'Reflective White'),
 )
 VALID_FONTS = (
     ('Frutiger 55', 'Frutiger 55'),
@@ -167,6 +167,7 @@ class DecalSpecForm(forms.Form):
             (ROLLING_STOCK, 'Yes'),
             (NON_ROLLING_STOCK, 'No'),
         ],
+        initial=ROLLING_STOCK,
         widget=forms.RadioSelect(),
     )
 
@@ -175,11 +176,12 @@ class DecalSpecForm(forms.Form):
             (1, 'Placard'),
             (2, 'Decal'),
         ],
+        initial=1,
         widget=forms.RadioSelect(),
     )
     fleet_type = forms.ChoiceField(choices=VALID_FLEET_TYPES)
-    font_color = forms.CharField(max_length=7)
-    border_color = forms.CharField(required=False, max_length=7)
+    font_color = forms.ChoiceField(choices=VALID_COLORS)
+    border_color = forms.ChoiceField(choices=VALID_COLORS, required=False)
     description = forms.CharField(
         required=False,
         widget=forms.Textarea({
@@ -232,25 +234,25 @@ class DecalSpecForm(forms.Form):
         }),
     )
 
-    def clean_font_color(self):
-        font_color = self.cleaned_data['font_color']
-        if self.cleaned_data.get('rolling_stock_or_not') == NON_ROLLING_STOCK:
-            return font_color
-        if font_color not in VALID_COLORS:
-            raise forms.ValidationError(
-                FORM_ERRORS['multiple']['invalid_color'],
-            )
-        return font_color
+    # def clean_font_color(self):
+    #     font_color = self.cleaned_data['font_color']
+    #     if self.cleaned_data.get('rolling_stock_or_not') == NON_ROLLING_STOCK:  # noqa
+    #         return font_color
+    #     if font_color not in VALID_COLORS:
+    #         raise forms.ValidationError(
+    #             FORM_ERRORS['multiple']['invalid_color'],
+    #         )
+    #     return font_color
 
-    def clean_border_color(self):
-        border_color = self.cleaned_data['border_color']
-        if self.cleaned_data.get('rolling_stock_or_not') == NON_ROLLING_STOCK:
-            return border_color
-        if border_color not in VALID_COLORS:
-            raise forms.ValidationError(
-                FORM_ERRORS['multiple']['invalid_color'],
-            )
-        return border_color
+    # def clean_border_color(self):
+    #     border_color = self.cleaned_data['border_color']
+    #     if self.cleaned_data.get('rolling_stock_or_not') == NON_ROLLING_STOCK:  # noqa
+    #         return border_color
+    #     if border_color not in VALID_COLORS:
+    #         raise forms.ValidationError(
+    #             FORM_ERRORS['multiple']['invalid_color'],
+    #         )
+    #     return border_color
 
     def clean_border_thickness(self):
         border_thickness = self.cleaned_data['border_thickness']
