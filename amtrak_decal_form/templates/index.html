@@ -1,87 +1,218 @@
 {% load staticfiles %}
+{% load render_field %}
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Amtrak</title>
+    <title>Amtrak Decal Request Form</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}?t={% now 'U' %}" type="text/css" />
-    <!-- Get jQuery -->
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}?t={% now 'U' %}"></script>
-    <script type="text/javascript" src="{% static 'js/main.js' %}?t={% now 'U' %}"></script>
-    </script>
+	<link rel="stylesheet" href="{% static 'css/bootstrap-responsive.min.css' %}?t={% now 'U' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}?t={% now 'U' %}" type="text/css" />
 </head>
 <body>
-<!-- on page load, trigger modal for terms of service -->
 
-<!--
-First pane:
-    Name 
-    Department - drop down
-    Location 
-    Address
-    Phone number
-    Alternate Phone Number - optional
-    Cost Center - input field (numerical)
-    WBS Element - input field (alpha-numeric)
-    Account - input field (numerical)
+<img src="{% static 'img/logo.jpg' %}" class="logo" alt="Amtrak Decals">
 
-    Click to continue (at some point use ajax to do form validation before actually going on.
-
--->
-
-<!-- 
-Second pane: 
-
-    Radio button for rolling vs non-rolling stock
-    Radio button for Placard vs Decal
-    For Rolling Stock:
-        if Placard
-            Raised braille lettering?
-                Don't know?
-                If yes, gets flagged as vendor only. - Checkbox
-        else # Decal
-            Request for logos, numbers, or lettering only. - Checkbox
-        Fleet type (Amfleet I or II, Superliner, Acela, et al.) - Dropdown
-        Font
-            color - Radio Button
-        Border
-            color - Radio Button
-    For Non-Rolling Stock
-        if Placard
-        else # Decal
-            Request for logos, numbers, or lettering only. - Checkbox
-        Font
-            color - color pallet doo-hickey
-        Border
-            color - color pallet doo-hickey
-
-    Short description of signage, including where it will be used. - Textarea
-    Font 
-        face - dropdown
-        size - slider
-    Text - wsiwig editor
-    Border
-        type - dropdown
-        thickness - slider
-    Required substrate - dropdown
-    Sample window - click handler
-
-    submit
-
--->
-<form action="{% url 'index' %}" method="post">
-        {% csrf_token %}
-        <div class='form-errors'>
+<div class="container">
+		<div id="error-alert" class="row hide">
+            <div class="span12">
+                <div class="alert alert-error">
+                    <strong>Warning!</strong> You have form errors. Please check the fields below.
+                </div>
+            </div>
         </div>
-        <div class="pane-1">
-            {{ user_form.as_ul }}
-            <a href="#" class="continue btn btn-primary">Continue</a>
-        </div>
-        <div class="hide pane-2">
-            {{ decal_form.as_ul }}
-        </div>
-    </form>
+		<div class="row">
+			<form action="{% url 'index' %}" method="post">
+				{% csrf_token %}
+				<div id="user-info-form">
+					<div class="span6">
+						<div class="pane">
+							<div class="cf">
+								{% render_field user_form 'name' %}
+							</div>
+							<div class="cf">
+								{% render_field user_form 'line1' %}
+								</div>
+							<div class="cf">
+								{% render_field user_form 'line2' %}
+							</div>
+							<div class="cf">
+								{% render_field user_form 'city' %}
+							</div>
+							<div class="cf">
+								{% render_field user_form 'state' %}
+							</div>
+							<div class="cf">
+								{% render_field user_form 'zip_code' %}
+							</div>
+							<div class="cf">
+								{% render_field user_form 'phone_number' %}
+							</div>
+							<div class="cf">
+								{% render_field user_form 'alternate_phone_number' %}
+							</div>
+						</div>					
+					</div>
+					<div class="span6">
+						<div class="pane">
+							<div class="cf">
+								{% render_field user_form 'department' %}
+							</div>
+							<div class="cf">
+								{% render_field user_form 'location' %}
+							</div>
+							<div class="cf">
+								{% render_field user_form 'cost_center' %}
+							</div>
+							<div class="cf">
+								{% render_field user_form 'wbs_element' %}
+							</div>
+							<div class="cf">
+								{% render_field user_form 'account' %}
+							</div>
+						</div>
+					</div>
+					<div class='form-errors'></div>					
+				</div>
+				<div id="decal-spec-form" class="hide">
+                    <div class="span6">
+                        <div class="pane">
+							<div class="cf">
+                                {% render_field decal_form 'rolling_stock_or_not' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'placard_or_decal' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'fleet_type' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'font_color' %}
+							</div>
+							<div id="border-color" class="cf hide">
+                                {% render_field decal_form 'border_color' %}
+							</div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <div class="pane">
+							<div class="cf">
+                                {% render_field decal_form 'description' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'font_face' %}
+                                <a href="#font-face-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'font_size' %}
+                                <a href="#font-size-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
+							</div>
+                            {% comment %}
+							<div class="cf">
+                                {% render_field decal_form 'html' %}
+							</div>
+                            {% endcomment %}
+							<div id="border-type" class="cf">
+                                {% render_field decal_form 'border_type' %}
+                                <a href="#border-type-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
+							</div>
+							<div id="border-thickness" class="cf hide">
+                                {% render_field decal_form 'border_thickness' %}
+                                <a href="#border-thickness-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'required_substrate' %}
+							</div>
+                        </div>
+                    </div>
+				</div>
+			</form>
+		</div>
+		<div class="row">
+			<div class="span12">
+				<div class="pane">
+					<a href="#" class="continue btn btn-primary btn-block btn-large">Continue <i class="icon-arrow-right icon-white"></i></a>
+				</div>
+			</div>
+		</div>	
+</div>
+
+<!-- Font Face Modal -->
+<div id="font-face-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Font Face Examples</h3>
+    </div>
+    <div class="modal-body">
+        <p>Table of examples.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<!-- Font Size Modal -->
+<div id="font-size-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Font Size Examples</h3>
+    </div>
+    <div class="modal-body">
+        <p>Table of examples.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<!-- Border Type Modal -->
+<div id="border-type-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Border Type Examples</h3>
+    </div>
+    <div class="modal-body">
+        <table class="table table-bordered">
+            <tr>
+                <td>Single</td>
+                <td><div class="border-type single"></div></td>
+            </tr>
+            <tr>
+                <td>Double</td>
+                <td><div class="border-type double"></div></td>
+            </tr>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<!-- Border Thickness Modal -->
+<div id="border-thickness-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Border Thickness Examples</h3>
+    </div>
+    <div class="modal-body">
+    
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+
 </body>
+
+<!-- Get jQuery -->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}?t={% now 'U' %}"></script>
+<script type="text/javascript" src="{% static 'lib/cycle2.min.js' %}?t={% now 'U' %}"></script>
+<script type="text/javascript" src="{% static 'lib/bootstrap-tooltip.js' %}?t={% now 'U' %}"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}?t={% now 'U' %}"></script>
+
 </html>

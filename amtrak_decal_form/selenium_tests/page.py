@@ -26,8 +26,8 @@ class UserPanel(object):
 
     def get_form_errors(self):
         return [
-            element.text for element in
-            self.driver.find_elements_by_css_selector('.form-errors li')
+            element.get_attribute('title') for element in
+            self.driver.find_elements_by_class_name('validation-error')
         ]
 
 

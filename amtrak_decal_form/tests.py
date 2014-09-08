@@ -5,7 +5,7 @@ from amtrak_decal_form.forms import (
     DecalSpecForm,
     FORM_ERRORS,
     NON_ROLLING_STOCK,
-    ROLLING_STOCK,
+    # ROLLING_STOCK,
     UserInfoForm,
 )
 
@@ -124,29 +124,45 @@ class UserPanelFormTestCase(TestCase):
 
 
 class DecalSpecFormTestCase(TestCase):
-    def test_rolling_stock_only_allows_subset_of_colors(self):
-        params = {
-            'rolling_stock_or_not': ROLLING_STOCK,
-            'font_color': '#789456',
-            'border_color': '#789456',
-        }
-        form = DecalSpecForm(data=params)
-        form.is_valid()
-        colored_fields = ['font_color', 'border_color']
-        for colored_field in colored_fields:
-            self.assertEqual(
-                form.errors[colored_field],
-                [FORM_ERRORS['multiple']['invalid_color']],
-            )
+    # def test_rolling_stock_only_allows_subset_of_colors(self):
+    #     params = {
+    #         'rolling_stock_or_not': ROLLING_STOCK,
+    #         'font_color': '#789456',
+    #         'border_color': '#789456',
+    #     }
+    #     form = DecalSpecForm(data=params)
+    #     form.is_valid()
+    #     colored_fields = ['font_color', 'border_color']
+    #     for colored_field in colored_fields:
+    #         self.assertEqual(
+    #             form.errors[colored_field],
+    #             [FORM_ERRORS['multiple']['invalid_color']],
+    #         )
 
-    def test_non_rolling_stock_allows_all_colors(self):
+    # def test_non_rolling_stock_allows_all_colors(self):
+    #     params = {
+    #         'rolling_stock_or_not': NON_ROLLING_STOCK,
+    #         'font_color': '#789456',
+    #         'border_color': '#789456',
+    #     }
+    #     form = DecalSpecForm(data=params)
+    #     form.is_valid()
+    #     colored_fields = ['font_color', 'border_color']
+    #     for colored_field in colored_fields:
+    #         assert colored_field not in form.errors
+
+    def test_border_thickness_is_ignored_if_no_border(self):
         params = {
             'rolling_stock_or_not': NON_ROLLING_STOCK,
-            'font_color': '#789456',
-            'border_color': '#789456',
+            'placard_or_decal': 1,
+            'fleet_type': 'ACS-64',
+            'font_color': '#FFFFFF',
+            'border_type': 'None',
+            'border_thickness': '5',
+            'font_face': 'Frutiger 55',
+            'font_size': '8',
+            'required_substrate': 'Lexedge (Plastic)',
         }
         form = DecalSpecForm(data=params)
-        form.is_valid()
-        colored_fields = ['font_color', 'border_color']
-        for colored_field in colored_fields:
-            assert colored_field not in form.errors
+        assert form.is_valid()
+        self.assertEqual(form.cleaned_data['border_thickness'], '')
