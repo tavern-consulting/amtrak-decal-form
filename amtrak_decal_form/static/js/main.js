@@ -36,8 +36,10 @@ $( document ).ready(function() {
     $('#border-type select').change(function() {
         if($(this).val() == "None") {
             $('#border-thickness').addClass('hide');
+            $('#border-color').addClass('hide');
         } else {
             $('#border-thickness').removeClass('hide');
+            $('#border-color').removeClass('hide');
         }
     });
 });
