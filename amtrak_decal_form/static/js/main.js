@@ -35,7 +35,6 @@ $( document ).ready(function() {
         });
     });
     $('a.finish').click(function(e) {
-        console.log('test');
         e.preventDefault();
         $('form').submit();
     });

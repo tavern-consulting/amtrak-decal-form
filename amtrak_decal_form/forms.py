@@ -176,7 +176,7 @@ class DecalSpecForm(forms.Form):
             ('Placard', 'Placard'),
             ('Decal', 'Decal'),
         ],
-        initial=1,
+        initial='Placard',
         widget=forms.RadioSelect(),
     )
     fleet_type = forms.ChoiceField(choices=VALID_FLEET_TYPES)
