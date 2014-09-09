@@ -41,7 +41,7 @@ def index(request):
 
             pdf = generate_pdf(html)
             today = date.today()
-            filename = 'Decal-Request-%s' % today.strftime('%d-%m-%y')
+            filename = 'Decal-Request-%s' % today.strftime('%m-%d-%y')
             return PDFResponse(pdf, filename)
 
     context = {
