@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
@@ -38,7 +40,9 @@ def index(request):
             )
 
             pdf = generate_pdf(html)
-            return PDFResponse(pdf, 'test.pdf')
+            today = date.today()
+            filename = 'Decal-Request-%s' % today.strftime('%d-%m-%y')
+            return PDFResponse(pdf, filename)
 
     context = {
         'user_form': user_form,
