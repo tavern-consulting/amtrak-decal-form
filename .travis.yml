@@ -5,9 +5,10 @@ python:
 before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
-script: ./run_tests.sh
+script: env; ./run_tests.sh
 env:
-    - WKHTLMTOPDF_CMD=wkhtmltopdf-heroku
+
+    - WKHTLMTOPDF_CMD=/home/travis/virtualenv/$TRAVIS_PYTHON_VERSION/bin/wkhtmltopdf-heroku
 install:
         pip install -r requirements.txt -r test_requirements.txt
 notifications:
