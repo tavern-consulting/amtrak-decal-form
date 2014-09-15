@@ -154,15 +154,31 @@ class DecalSpecFormTestCase(TestCase):
     def test_border_thickness_is_ignored_if_no_border(self):
         params = {
             'rolling_stock_or_not': NON_ROLLING_STOCK,
-            'placard_or_decal': 1,
+            'placard_or_decal': 'Placard',
             'fleet_type': 'ACS-64',
             'font_color': '#FFFFFF',
             'border_type': 'None',
-            'border_thickness': '5',
+            'border_thickness': '5px',
             'font_face': 'Frutiger 55',
-            'font_size': '8',
+            'font_size': '8px',
             'required_substrate': 'Lexedge (Plastic)',
         }
         form = DecalSpecForm(data=params)
         assert form.is_valid()
         self.assertEqual(form.cleaned_data['border_thickness'], '')
+
+    def test_border_thickness_is_not_ignored_if_border_passed_in(self):
+        params = {
+            'rolling_stock_or_not': NON_ROLLING_STOCK,
+            'placard_or_decal': 'Placard',
+            'fleet_type': 'ACS-64',
+            'font_color': '#FFFFFF',
+            'border_type': 'Single',
+            'border_thickness': '5px',
+            'font_face': 'Frutiger 55',
+            'font_size': '8px',
+            'required_substrate': 'Lexedge (Plastic)',
+        }
+        form = DecalSpecForm(data=params)
+        assert form.is_valid()
+        self.assertEqual(form.cleaned_data['border_thickness'], '5px')
