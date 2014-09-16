@@ -7,6 +7,7 @@ class UserPanel(object):
             ('id_city', 'Indianapolis'),
             ('id_zip_code', '46260'),
             ('id_phone_number', '317-867-5309'),
+            ('id_email', 'foo@bar.com'),
             ('id_cost_center', 'Cost Center'),
             ('id_wbs_element', 'WBS Element'),
             ('id_account', 'Account'),

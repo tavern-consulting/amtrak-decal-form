@@ -1,3 +1,4 @@
+djrill==1.1.1
 dj-static
 django-localflavor
 django==1.6

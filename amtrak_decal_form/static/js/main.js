@@ -18,7 +18,7 @@ $( document ).ready(function() {
                     $('#decal-spec-form').removeClass('hide');
                     $('#user-info-form').addClass('hide');
                 $('a.continue').addClass('hide');
-                $('a.finish').removeClass('hide');
+                $('.finish').removeClass('hide');
                 } else {
                     for (var key in data.errors) {
                         if (data.errors.hasOwnProperty(key)) {
@@ -33,10 +33,6 @@ $( document ).ready(function() {
                 }
             }
         });
-    });
-    $('a.finish').click(function(e) {
-        e.preventDefault();
-        $('form').submit();
     });
     $('#border-type select').change(function() {
         if($(this).val() == "None") {
