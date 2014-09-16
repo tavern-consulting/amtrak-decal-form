@@ -88,8 +88,8 @@ VALID_SUBSTRATES = (
 )
 
 
-ROLLING_STOCK = '1'
-NON_ROLLING_STOCK = '2'
+ROLLING_STOCK = 'Rolling Stock'
+NON_ROLLING_STOCK = 'Non-Rolling Stock'
 
 
 class USStateSelect(forms.Select):
@@ -173,10 +173,10 @@ class DecalSpecForm(forms.Form):
 
     placard_or_decal = forms.ChoiceField(
         choices=[
-            (1, 'Placard'),
-            (2, 'Decal'),
+            ('Placard', 'Placard'),
+            ('Decal', 'Decal'),
         ],
-        initial=1,
+        initial='Placard',
         widget=forms.RadioSelect(),
     )
     fleet_type = forms.ChoiceField(choices=VALID_FLEET_TYPES)
@@ -197,11 +197,11 @@ class DecalSpecForm(forms.Form):
     )
     font_size = forms.ChoiceField(
         choices=[
-            (8, 'Very Small'),
-            (12, 'Small'),
-            (16, 'Medium'),
-            (24, 'Large'),
-            (36, 'Very Large'),
+            ('8px', 'Very Small'),
+            ('12px', 'Small'),
+            ('16px', 'Medium'),
+            ('24px', 'Large'),
+            ('36px', 'Very Large'),
         ],
     )
     html = forms.CharField(required=False, widget=forms.Textarea)
@@ -217,11 +217,11 @@ class DecalSpecForm(forms.Form):
     )
     border_thickness = forms.ChoiceField(
         choices=[
-            (5, 'Very Thin'),
-            (10, 'Thin'),
-            (15, 'Medium'),
-            (20, 'Thick'),
-            (25, 'Very Thick'),
+            ('5px', 'Very Thin'),
+            ('10px', 'Thin'),
+            ('15px', 'Medium'),
+            ('20px', 'Thick'),
+            ('25px', 'Very Thick'),
         ],
         widget=forms.Select({
             'class': 'input-medium',

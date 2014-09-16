@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Amtrak Decal Request Form</title>
+    <style type="text/css">
+        {% include "include/print.css" %}
+    </style>
+</head>
+<body>
+<h3>Amtrak Decal Request Form</h3>
+<h4>User Information</h4>
+<table class="table table-bordered">
+    <tr>
+        <td>{{ user_form.name.label }}</td>
+        <td>{{ user_form.name.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ user_form.line1.label }}</td>
+        <td>{{ user_form.line1.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ user_form.line2.label }}</td>
+        <td>{{ user_form.line2.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ user_form.city.label }}</td>
+        <td>{{ user_form.city.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ user_form.state.label }}</td>
+        <td>{{ user_form.state.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ user_form.zip_code.label }}</td>
+        <td>{{ user_form.zip_code.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ user_form.phone_number.label }}</td>
+        <td>{{ user_form.phone_number.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ user_form.alternate_phone_number.label }}</td>
+        <td>{{ user_form.alternate_phone_number.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ user_form.department.label }}</td>
+        <td>{{ user_form.department.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ user_form.location.label }}</td>
+        <td>{{ user_form.location.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ user_form.cost_center.label }}</td>
+        <td>{{ user_form.cost_center.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ user_form.wbs_element.label }}</td>
+        <td>{{ user_form.wbs_element.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ user_form.account.label }}</td>
+        <td>{{ user_form.account.value }}</td>
+    </tr>
+</table>
+
+<h4>Decal Form Information</h4>
+<table class="table table-bordered">
+    <tr>
+        <td>{{ decal_form.rolling_stock_or_not.label }}</td>
+        <td>{{ decal_form.rolling_stock_or_not.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ decal_form.placard_or_decal.label }}</td>
+        <td>{{ decal_form.placard_or_decal.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ decal_form.fleet_type.label }}</td>
+        <td>{{ decal_form.fleet_type.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ decal_form.font_color.label }}</td>
+        <td>{{ decal_form.font_color.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ decal_form.border_color.label }}</td>
+        <td>{{ decal_form.border_color.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ decal_form.description.label }}</td>
+        <td>{{ decal_form.description.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ decal_form.font_face.label }}</td>
+        <td>{{ decal_form.font_face.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ decal_form.font_size.label }}</td>
+        <td>{{ decal_form.font_size.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ decal_form.border_type.label }}</td>
+        <td>{{ decal_form.border_type.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ decal_form.border_thickness.label }}</td>
+        <td>{{ decal_form.border_thickness.value }}</td>
+    </tr>
+    <tr>
+        <td>{{ decal_form.required_substrate.label }}</td>
+        <td>{{ decal_form.required_substrate.value }}</td>
+    </tr>
+</table>
+
+</body>
+
+</html>

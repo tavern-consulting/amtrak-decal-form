@@ -34,7 +34,7 @@ class FormTestCase(TestCase):
         return {
             # User Form
             'name': 'name',
-            'department': 1,
+            'department': 'Engineering',
             'location': 'location',
             'phone_number': '123-456-7890',
             'alternate_phone_number': '123-456-0987',
@@ -48,18 +48,18 @@ class FormTestCase(TestCase):
             'zip_code': '46260',
 
             # Decal Form
-            'rolling_stock_or_not': 1,
-            'placard_or_decal': 1,
-            'fleet_type': 1,
-            'font_color': '#FFFFFF',
-            'border_color': '#FFFFFF',
+            'rolling_stock_or_not': 'Rolling Stock',
+            'placard_or_decal': 'Placard',
+            'fleet_type': 'P32',
+            'font_color': '#000000',
+            'border_color': '#000000',
             'description': 'Description',
-            'font_face': 1,
-            'font_size': '12',
+            'font_face': 'Helvetica',
+            'font_size': '12px',
             'html': '<p>Test<p>',
-            'border_type': 1,
-            'border_thickness': '0',
-            'required_substrate': 1,
+            'border_type': 'None',
+            'border_thickness': '5px',
+            'required_substrate': 'Lexedge (Plastic)',
         }
 
     def test_form_error_for_missing_fields(self):
@@ -154,15 +154,39 @@ class DecalSpecFormTestCase(TestCase):
     def test_border_thickness_is_ignored_if_no_border(self):
         params = {
             'rolling_stock_or_not': NON_ROLLING_STOCK,
-            'placard_or_decal': 1,
+            'placard_or_decal': 'Placard',
             'fleet_type': 'ACS-64',
             'font_color': '#FFFFFF',
             'border_type': 'None',
-            'border_thickness': '5',
+            'border_thickness': '5px',
             'font_face': 'Frutiger 55',
-            'font_size': '8',
+            'font_size': '8px',
             'required_substrate': 'Lexedge (Plastic)',
         }
         form = DecalSpecForm(data=params)
         assert form.is_valid()
         self.assertEqual(form.cleaned_data['border_thickness'], '')
+
+    def test_border_thickness_is_not_ignored_if_border_passed_in(self):
+        params = {
+            'rolling_stock_or_not': NON_ROLLING_STOCK,
+            'placard_or_decal': 'Placard',
+            'fleet_type': 'ACS-64',
+            'font_color': '#FFFFFF',
+            'border_type': 'Single',
+            'border_thickness': '5px',
+            'font_face': 'Frutiger 55',
+            'font_size': '8px',
+            'required_substrate': 'Lexedge (Plastic)',
+        }
+        form = DecalSpecForm(data=params)
+        assert form.is_valid()
+        self.assertEqual(form.cleaned_data['border_thickness'], '5px')
+
+
+class PDFTestCase(FormTestCase):
+    def test_success(self):
+        r = self.client.post(self.url, self.params)
+        self.assertEqual(r.status_code, 200)
+        self.assertEqual(r['Content-Type'], 'application/pdf')
+        self.assertEqual(r.content[:4], '%PDF')
