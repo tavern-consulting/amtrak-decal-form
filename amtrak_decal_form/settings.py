@@ -97,3 +97,5 @@ MANDRILL_API_KEY = os.environ.get('MANDRILL_APIKEY')
 EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 if MANDRILL_API_KEY:
     EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
+
+EMAIL_TO = os.environ.get('EMAIL_TO', 'jason.louard.ward@gmail.com')

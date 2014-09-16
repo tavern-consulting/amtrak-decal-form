@@ -1,6 +1,8 @@
 from datetime import date
 
 from django.core import mail
+from django.core.urlresolvers import reverse
+from django.conf import settings
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
@@ -50,7 +52,7 @@ def index(request):
                     subject='Decal Acquisition',
                     body='See attachment.',
                     from_email='do.not.reply@amtrak.com',
-                    to=['jason.louard.ward@gmail.com'],
+                    to=[settings.EMAIL_TO],
                 )
                 email.attach(
                     filename,
