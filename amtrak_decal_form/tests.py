@@ -1,3 +1,4 @@
+from django.core import mail
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
@@ -193,3 +194,16 @@ class PDFTestCase(FormTestCase):
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r['Content-Type'], 'application/pdf')
         self.assertEqual(r.content[:4], '%PDF')
+
+
+class EmailTestCase(FormTestCase):
+    action = 'finish'
+
+    def test_success(self):
+        r = self.client.post(self.url, self.params)
+        self.assertEqual(r.status_code, 200)
+        self.assertNotEqual(r['Content-Type'], 'application/pdf')
+        self.assertNotEqual(r.content[:4], '%PDF')
+        self.assertEqual(len(mail.outbox), 1)
+        message = mail.outbox[0]
+        self.assertEqual(len(message.attachments), 1)
