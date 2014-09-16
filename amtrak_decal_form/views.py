@@ -47,8 +47,8 @@ def index(request):
                 return PDFResponse(pdf, filename)
             else:
                 email = mail.EmailMessage(
-                    subject='Hello',
-                    body='Body goes here',
+                    subject='Decal Acquisition',
+                    body='See attachment.',
                     from_email='do.not.reply@amtrak.com',
                     to=['jason.louard.ward@gmail.com'],
                 )
