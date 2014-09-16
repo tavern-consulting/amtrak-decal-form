@@ -108,18 +108,35 @@ body {
     width: 150px;
     height: 1px;
     margin: 4px auto;}
-    
 #border-type-modal .single {
     border-top: solid 10px #000;}
-
 #border-type-modal .double {
     border-top: double 10px #000;}
 
 /* Border Thickness Modal */
-#border-thickness-modal {}
-
-
-
+#border-thickness-modal td {
+    line-height: 26px;}
+#border-thickness-modal .border-thickness {
+    display: block;
+    width: 150px;
+    height: 0;
+    margin: 0 auto;
+    border-top-style: solid;
+    border-top-color: #000;}
+#border-thickness-modal .very-thin {
+    border-top-width: 5px;
+    margin-top: 10px;}
+#border-thickness-modal .thin {
+    border-top-width: 10px;
+    margin-top: 8px;}
+#border-thickness-modal .medium {
+    border-top-width: 15px;
+    margin-top: 5px;}
+#border-thickness-modal .thick {
+    border-top-width: 20px;
+    margin-top: 3px;}
+#border-thickness-modal .very-thick {
+    border-top-width: 25px;}
 
 
 /* ------------------------------- */
