@@ -48,8 +48,11 @@ def index(request):
             if request.POST.get('action') == 'preview':
                 return PDFResponse(pdf, filename)
             else:
+                subject = 'Decal Acquisition %s' % (
+                    user_form.cleaned_data['name'],
+                )
                 email = mail.EmailMessage(
-                    subject='Decal Acquisition',
+                    subject=subject,
                     body='See attachment.',
                     from_email='do.not.reply@amtrak.com',
                     to=[settings.EMAIL_TO],
