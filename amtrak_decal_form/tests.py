@@ -28,6 +28,7 @@ class SmokeTestCase(TestCase):
 
 class FormTestCase(TestCase):
     url = reverse('index')
+    action = 'preview'
 
     @property
     def params(self):
@@ -61,7 +62,7 @@ class FormTestCase(TestCase):
             'border_thickness': '5px',
             'required_substrate': 'Lexedge (Plastic)',
 
-            'action': 'preview',
+            'action': self.action,
         }
 
     def test_form_error_for_missing_fields(self):
