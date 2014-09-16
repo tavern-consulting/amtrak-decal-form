@@ -60,6 +60,8 @@ class FormTestCase(TestCase):
             'border_type': 'None',
             'border_thickness': '5px',
             'required_substrate': 'Lexedge (Plastic)',
+
+            'action': 'preview',
         }
 
     def test_form_error_for_missing_fields(self):

@@ -42,7 +42,7 @@ def index(request):
             pdf = generate_pdf(html)
             today = date.today()
             filename = 'Decal-Request-%s' % today.strftime('%m-%d-%y')
-            if request.POST['action'] == 'preview':
+            if request.POST.get('action') == 'preview':
                 return PDFResponse(pdf, filename)
 
     context = {
