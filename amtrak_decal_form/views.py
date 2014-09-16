@@ -51,10 +51,11 @@ def index(request):
                 subject = 'Decal Acquisition %s' % (
                     user_form.cleaned_data['name'],
                 )
+                from_email = user_form.cleaned_data['email']
                 email = mail.EmailMessage(
                     subject=subject,
                     body='See attachment.',
-                    from_email='do.not.reply@amtrak.com',
+                    from_email=from_email,
                     to=[settings.EMAIL_TO],
                 )
                 email.attach(
