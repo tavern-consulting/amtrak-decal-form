@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'amtrak_decal_form',
+    'djrill',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -91,3 +92,8 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(PROJECT_ROOT, 'templates').replace('\\', '/'),
 )
+
+MANDRILL_API_KEY = os.environ.get('MANDRILL_APIKEY')
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+if MANDRILL_API_KEY:
+    EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"

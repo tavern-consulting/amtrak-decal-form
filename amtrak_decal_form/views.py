@@ -1,5 +1,6 @@
 from datetime import date
 
+from django.core import mail
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
@@ -44,6 +45,19 @@ def index(request):
             filename = 'Decal-Request-%s' % today.strftime('%m-%d-%y')
             if request.POST.get('action') == 'preview':
                 return PDFResponse(pdf, filename)
+            else:
+                email = mail.EmailMessage(
+                    subject='Hello',
+                    body='Body goes here',
+                    from_email='do.not.reply@amtrak.com',
+                    to=['jason.louard.ward@gmail.com'],
+                )
+                email.attach(
+                    filename,
+                    pdf,
+                    'application/pdf',
+                )
+                email.send()
 
     context = {
         'user_form': user_form,
