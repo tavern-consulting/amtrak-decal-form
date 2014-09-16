@@ -40,6 +40,7 @@ class FormTestCase(TestCase):
             'location': 'location',
             'phone_number': '123-456-7890',
             'alternate_phone_number': '123-456-0987',
+            'email': 'foo@bar.com',
             'cost_center': 'cost_center',
             'wbs_element': 'wbs_element',
             'account': 'account',
