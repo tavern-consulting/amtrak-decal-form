@@ -1,3 +1,4 @@
+from django.core import mail
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
@@ -28,6 +29,7 @@ class SmokeTestCase(TestCase):
 
 class FormTestCase(TestCase):
     url = reverse('index')
+    action = 'preview'
 
     @property
     def params(self):
@@ -38,6 +40,7 @@ class FormTestCase(TestCase):
             'location': 'location',
             'phone_number': '123-456-7890',
             'alternate_phone_number': '123-456-0987',
+            'email': 'foo@bar.com',
             'cost_center': 'cost_center',
             'wbs_element': 'wbs_element',
             'account': 'account',
@@ -60,6 +63,8 @@ class FormTestCase(TestCase):
             'border_type': 'None',
             'border_thickness': '5px',
             'required_substrate': 'Lexedge (Plastic)',
+
+            'action': self.action,
         }
 
     def test_form_error_for_missing_fields(self):
@@ -190,3 +195,16 @@ class PDFTestCase(FormTestCase):
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r['Content-Type'], 'application/pdf')
         self.assertEqual(r.content[:4], '%PDF')
+
+
+class EmailTestCase(FormTestCase):
+    action = 'finish'
+
+    def test_success(self):
+        r = self.client.post(self.url, self.params)
+        self.assertEqual(r.status_code, 302)
+        self.assertNotEqual(r['Content-Type'], 'application/pdf')
+        self.assertNotEqual(r.content[:4], '%PDF')
+        self.assertEqual(len(mail.outbox), 1)
+        message = mail.outbox[0]
+        self.assertEqual(len(message.attachments), 1)

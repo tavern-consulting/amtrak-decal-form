@@ -144,6 +144,7 @@ class UserInfoForm(forms.Form):
             'class': 'input-medium',
         }),
     )
+    email = forms.EmailField()
     cost_center = forms.CharField()
     wbs_element = forms.CharField()
     account = forms.CharField()

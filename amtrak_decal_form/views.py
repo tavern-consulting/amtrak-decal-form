@@ -1,7 +1,10 @@
 from datetime import date
 
+from django.core import mail
+from django.core.urlresolvers import reverse
+from django.conf import settings
 from django.http import Http404, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.utils import simplejson
 from django.views.decorators.http import require_POST
@@ -42,7 +45,26 @@ def index(request):
             pdf = generate_pdf(html)
             today = date.today()
             filename = 'Decal-Request-%s' % today.strftime('%m-%d-%y')
-            return PDFResponse(pdf, filename)
+            if request.POST.get('action') == 'preview':
+                return PDFResponse(pdf, filename)
+            else:
+                subject = 'Decal Acquisition %s' % (
+                    user_form.cleaned_data['name'],
+                )
+                from_email = user_form.cleaned_data['email']
+                email = mail.EmailMessage(
+                    subject=subject,
+                    body='See attachment.',
+                    from_email=from_email,
+                    to=[settings.EMAIL_TO],
+                )
+                email.attach(
+                    filename,
+                    pdf,
+                    'application/pdf',
+                )
+                email.send()
+                return redirect(reverse('index'))
 
     context = {
         'user_form': user_form,
