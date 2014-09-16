@@ -4,7 +4,7 @@ from django.core import mail
 from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.http import Http404, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.utils import simplejson
 from django.views.decorators.http import require_POST
@@ -60,6 +60,7 @@ def index(request):
                     'application/pdf',
                 )
                 email.send()
+                return redirect(reverse('index'))
 
     context = {
         'user_form': user_form,
