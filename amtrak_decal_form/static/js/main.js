@@ -43,5 +43,8 @@ $( document ).ready(function() {
             $('#border-color').removeClass('hide');
         }
     });
-    $('#id_html').editable({inlineMode: false})
+    $('#id_html').editable({
+        inlineMode: false,
+        buttons: ['bold', 'italic', 'align', 'insertImage', 'undo', 'redo']
+    })
 });
