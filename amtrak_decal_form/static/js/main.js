@@ -43,4 +43,5 @@ $( document ).ready(function() {
             $('#border-color').removeClass('hide');
         }
     });
+    $('#id_html').editable({inlineMode: false})
 });
