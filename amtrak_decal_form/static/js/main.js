@@ -46,6 +46,6 @@ $( document ).ready(function() {
     $('#id_html').editable({
         inlineMode: false,
         fontList: ['tahomaregular'],
-        buttons: ['bold', 'italic', 'fontSize', 'fontFamily', 'align', 'insertImage', 'undo', 'redo']
+        buttons: ['bold', 'italic', 'fontSize', 'fontFamily', 'color', 'align', 'insertImage', 'undo', 'redo']
     })
 });

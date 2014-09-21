@@ -23,9 +23,6 @@ VALID_COLORS = (
     ('#BD2031', 'Cardinal Red'),
     ('#FFFF00', 'Yellow'),
     ('#FFFFFF', 'White'),
-
-    ('#CLRREC', 'Clear Receptive'),
-    ('#REFFFF', 'Reflective White'),
 )
 
 
@@ -183,6 +180,8 @@ class DecalSpecForm(forms.Form):
         })
     )
     html = forms.CharField(required=False, widget=forms.Textarea)
+    clear_receptive = forms.BooleanField(required=False)
+    reflective_white = forms.BooleanField(required=False)
     border_type = forms.ChoiceField(
         choices=[
             ('None', 'None'),

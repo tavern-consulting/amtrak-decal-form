@@ -133,6 +133,12 @@
                                 {% render_field decal_form 'html' %}
 							</div>
                             {% endcomment %}
+							<div class="cf">
+                                {% render_field decal_form 'clear_receptive' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'reflective_white' %}
+							</div>
 							<div id="border-type" class="cf">
                                 {% render_field decal_form 'border_type' %}
                                 <a href="#border-type-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
@@ -281,6 +287,7 @@
 <script type="text/javascript" src="{% static 'lib/froala/js/froala_editor.min.js' %}?t={% now 'U' %}"></script>
 <script type="text/javascript" src="{% static 'lib/froala/js/plugins/font_family.min.js' %}?t={% now 'U' %}"></script>
 <script type="text/javascript" src="{% static 'lib/froala/js/plugins/font_size.min.js' %}?t={% now 'U' %}"></script>
+<script type="text/javascript" src="{% static 'lib/froala/js/plugins/colors.min.js' %}?t={% now 'U' %}"></script>
 <script type="text/javascript" src="{% static 'js/main.js' %}?t={% now 'U' %}"></script>
 
 </html>
