@@ -1,2 +1,2 @@
 #!/bin/sh
-coverage run --source='amtrak_decal_form/' manage.py test --verbosity=2 && coverage report --show-missing --fail-under=98 --omit="*test*.py" && find amtrak_decal_form -name '*.py' | xargs flake8
+coverage run --source='amtrak_decal_form/' manage.py test --verbosity=2 && coverage report --show-missing --fail-under=100 --omit="*test*.py" && find amtrak_decal_form -name '*.py' | xargs flake8

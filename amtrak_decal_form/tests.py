@@ -57,8 +57,6 @@ class FormTestCase(TestCase):
             'font_color': '#000000',
             'border_color': '#000000',
             'description': 'Description',
-            'font_face': 'Helvetica',
-            'font_size': '12px',
             'html': '<p>Test<p>',
             'border_type': 'None',
             'border_thickness': '5px',
@@ -164,8 +162,6 @@ class DecalSpecFormTestCase(TestCase):
             'font_color': '#FFFFFF',
             'border_type': 'None',
             'border_thickness': '5px',
-            'font_face': 'Frutiger 55',
-            'font_size': '8px',
             'required_substrate': 'Lexedge (Plastic)',
         }
         form = DecalSpecForm(data=params)
@@ -180,8 +176,6 @@ class DecalSpecFormTestCase(TestCase):
             'font_color': '#FFFFFF',
             'border_type': 'Single',
             'border_thickness': '5px',
-            'font_face': 'Frutiger 55',
-            'font_size': '8px',
             'required_substrate': 'Lexedge (Plastic)',
         }
         form = DecalSpecForm(data=params)

@@ -27,14 +27,6 @@ VALID_COLORS = (
     ('#CLRREC', 'Clear Receptive'),
     ('#REFFFF', 'Reflective White'),
 )
-VALID_FONTS = (
-    ('Frutiger 55', 'Frutiger 55'),
-    ('Frutiger Bold 55', 'Frutiger Bold 55'),
-    ('Frutiger Italic 55', 'Frutiger Italic 55'),
-    ('Helvetica', 'Helvetica'),
-    ('Helvetica Bold', 'Helvetica Bold'),
-    ('Helvetica Italic', 'Helvetica Italic'),
-)
 
 
 VALID_DEPARTMENTS = (
@@ -189,21 +181,6 @@ class DecalSpecForm(forms.Form):
             'rows': 6,
             'cols': 40,
         })
-    )
-    font_face = forms.ChoiceField(
-        choices=VALID_FONTS,
-        widget=forms.Select({
-            'class': 'input-medium',
-        }),
-    )
-    font_size = forms.ChoiceField(
-        choices=[
-            ('8px', 'Very Small'),
-            ('12px', 'Small'),
-            ('16px', 'Medium'),
-            ('24px', 'Large'),
-            ('36px', 'Very Large'),
-        ],
     )
     html = forms.CharField(required=False, widget=forms.Textarea)
     border_type = forms.ChoiceField(
