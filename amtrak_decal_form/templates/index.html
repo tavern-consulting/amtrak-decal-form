@@ -21,10 +21,6 @@
 
 <img src="{% static 'img/logo.jpg' %}" class="logo" alt="Amtrak Decals">
 
-<h1 style="font-family: tahomaregular">THIS IS USING TAHOMA REGULAR. yay.</h1>
-
-<br><br><br>
-
 <div class="container">
         <form action="{% url 'index' %}" method="post">
             {% csrf_token %}
@@ -291,6 +287,7 @@
 <script type="text/javascript" src="{% static 'lib/cycle2.min.js' %}?t={% now 'U' %}"></script>
 <script type="text/javascript" src="{% static 'lib/bootstrap-tooltip.js' %}?t={% now 'U' %}"></script>
 <script type="text/javascript" src="{% static 'lib/froala/js/froala_editor.min.js' %}?t={% now 'U' %}"></script>
+<script type="text/javascript" src="{% static 'lib/froala/js/plugins/font_family.min.js' %}?t={% now 'U' %}"></script>
 <script type="text/javascript" src="{% static 'js/main.js' %}?t={% now 'U' %}"></script>
 
 </html>

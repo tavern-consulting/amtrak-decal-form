@@ -5,12 +5,12 @@
 
 @font-face {
     font-family: 'tahomaregular';
-    src: url('../lib/fonts/tahoma-webfont.eot');
-    src: url('../lib/fonts/tahoma-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../lib/fonts/tahoma-webfont.woff2') format('woff2'),
-        url('../lib/fonts/tahoma-webfont.woff') format('woff'),
-        url('../lib/fonts/tahoma-webfont.ttf') format('truetype'),
-        url('../lib/fonts/tahoma-webfont.svg#tahomaregular') format('svg');
+    src: url('../lib/froala/fonts/tahoma-webfont.eot');
+    src: url('../lib/froala/fonts/tahoma-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../lib/froala/fonts/tahoma-webfont.woff2') format('woff2'),
+        url('../lib/froala/fonts/tahoma-webfont.woff') format('woff'),
+        url('../lib/froala/fonts/tahoma-webfont.ttf') format('truetype'),
+        url('../lib/froala/fonts/tahoma-webfont.svg#tahomaregular') format('svg');
     font-weight: normal;
     font-style: normal;}
 
