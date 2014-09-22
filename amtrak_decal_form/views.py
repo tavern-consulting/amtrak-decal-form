@@ -1,6 +1,7 @@
 from datetime import date
 
 from django.core import mail
+from django.utils.safestring import mark_safe
 from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.http import Http404, HttpResponse
@@ -34,7 +35,7 @@ def index(request):
         user_form = UserInfoForm(data=request.POST)
         decal_form = DecalSpecForm(data=request.POST)
         if user_form.is_valid() and decal_form.is_valid():
-            html = render_to_string(
+            pdf_data = render_to_string(
                 'pdf.html',
                 {
                     'user_form': user_form,
@@ -42,7 +43,7 @@ def index(request):
                 },
             )
 
-            pdf = generate_pdf(html)
+            pdf = generate_pdf(pdf_data)
             today = date.today()
             filename = 'Decal-Request-%s' % today.strftime('%m-%d-%y')
             if request.POST.get('action') == 'preview':
@@ -52,18 +53,31 @@ def index(request):
                     user_form.cleaned_data['name'],
                 )
                 from_email = user_form.cleaned_data['email']
+                mock_up_data = render_to_string(
+                    'mock_up.html',
+                    {
+                        'html': mark_safe(decal_form.cleaned_data['html']),
+                    },
+                )
                 email = mail.EmailMessage(
                     subject=subject,
                     body='See attachment.',
                     from_email=from_email,
                     to=[settings.EMAIL_TO],
                 )
+                mock_up_filename = 'Mock-Up-%s' % today.strftime('%m-%d-%y')
                 email.attach(
                     filename,
                     pdf,
                     'application/pdf',
                 )
-                email.send()
+                if decal_form.cleaned_data['html'] != '<p><br></p>':
+                    email.attach(
+                        mock_up_filename,
+                        mock_up_data,
+                        'application/pdf',
+                    )
+                    email.send()
                 return redirect(reverse('index'))
 
     context = {
