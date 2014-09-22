@@ -80,6 +80,8 @@ body {
 #id_description {
     width: 100%;
     box-sizing: border-box;}
+.editor-fake-label {
+    line-height: 30px;}
     
 /* ------------------------------- */
 /* Helper Modal Classes */

@@ -90,17 +90,6 @@
 				</div>
             </div>
             
-            <!-- Editor -->
-            <div id="editor" class="">
-                <div class="row">
-                    <div class="span12">
-                        <div class="pane">
-                            {{ decal_form.html }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
             <!-- Decal Spec -->
             <div id="decal-spec-form" class="hide">
                 <div class="row">
@@ -155,6 +144,17 @@
                         </div>
                     </div>
 				</div>
+
+                <!-- Editor -->
+                <div class="row">
+                    <div class="span12">
+                        <div class="pane">
+                            <div class="editor-fake-label">Create a mock up of what you would like the decal to look like:</div>
+                            {{ decal_form.html }}
+                        </div>
+                    </div>
+                </div>
+                
             </div>
             
             <!-- Preview/Finish -->
@@ -162,7 +162,8 @@
                 <div class="span12">
                     <div class="pane">
                         <a href="#" class="continue btn btn-primary btn-block btn-large">Continue <i class="icon-arrow-right icon-white"></i></a>
-                        <button name="action" value="preview" type="submit" class="finish btn btn-primary btn-block btn-large hide">Preview <i class="icon-arrow-right icon-white"></i></button>
+                        <button name="action" value="preview" type="submit" class="finish btn btn-primary btn-block btn-large hide">Preview <i class="icon-eye-open icon-white"></i></button>
+                        <br>
                         <button name="action" value="finish" type="submit" class="finish btn btn-primary btn-block btn-large hide">Finish <i class="icon-arrow-right icon-white"></i></button>
                     </div>
                 </div>
