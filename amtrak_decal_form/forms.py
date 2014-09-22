@@ -23,9 +23,6 @@ VALID_COLORS = (
     ('#BD2031', 'Cardinal Red'),
     ('#FFFF00', 'Yellow'),
     ('#FFFFFF', 'White'),
-
-    ('#CLRREC', 'Clear Receptive'),
-    ('#REFFFF', 'Reflective White'),
 )
 
 
@@ -173,7 +170,6 @@ class DecalSpecForm(forms.Form):
         widget=forms.RadioSelect(),
     )
     fleet_type = forms.ChoiceField(choices=VALID_FLEET_TYPES)
-    font_color = forms.ChoiceField(choices=VALID_COLORS)
     border_color = forms.ChoiceField(choices=VALID_COLORS, required=False)
     description = forms.CharField(
         required=False,
@@ -183,6 +179,8 @@ class DecalSpecForm(forms.Form):
         })
     )
     html = forms.CharField(required=False, widget=forms.Textarea)
+    clear_receptive = forms.BooleanField(required=False)
+    reflective_white = forms.BooleanField(required=False)
     border_type = forms.ChoiceField(
         choices=[
             ('None', 'None'),
