@@ -53,12 +53,13 @@ def index(request):
                     user_form.cleaned_data['name'],
                 )
                 from_email = user_form.cleaned_data['email']
-                mock_up_data = render_to_string(
+                mock_up_html = render_to_string(
                     'mock_up.html',
                     {
                         'html': mark_safe(decal_form.cleaned_data['html']),
                     },
                 )
+                mock_up_data = generate_pdf(mock_up_html)
                 email = mail.EmailMessage(
                     subject=subject,
                     body='See attachment.',
