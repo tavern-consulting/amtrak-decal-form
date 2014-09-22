@@ -207,4 +207,4 @@ class EmailTestCase(FormTestCase):
         self.assertNotEqual(r.content[:4], '%PDF')
         self.assertEqual(len(mail.outbox), 1)
         message = mail.outbox[0]
-        self.assertEqual(len(message.attachments), 1)
+        self.assertEqual(len(message.attachments), 2)
