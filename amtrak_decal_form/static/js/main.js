@@ -45,7 +45,7 @@ $( document ).ready(function() {
     });
     $('#id_html').editable({
         inlineMode: false,
-        fontList: ['tahomaregular'],
+        fontList: ['Arial', 'Times New Roman', 'Tahoma', 'Helvetica Condensed', 'Frutiger 55', 'Frutiger 45'],
         buttons: ['bold', 'italic', 'fontSize', 'fontFamily', 'color', 'align', 'insertImage', 'undo', 'redo']
     })
 });

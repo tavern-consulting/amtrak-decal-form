@@ -48,7 +48,7 @@
     font-style: normal;}
 
 @font-face {
-    font-family:'Frutiger 55';
+    font-family: 'Frutiger 55';
     src: url('../lib/froala/fonts/FrutigerLT-Black.eot');
     src: url('../lib/froala/fonts/FrutigerLT-Black.eot?#iefix') format('embedded-opentype'),
         url('../lib/froala/fonts/FrutigerLT-Black.woff') format('woff'),
@@ -61,7 +61,7 @@
     unicode-range: U+0-10FFFF;}
     
 @font-face {
-    font-family:'Frutiger 45';
+    font-family: 'Frutiger 45';
     src: url('../lib/froala/fonts/FrutigerLT-Bold.eot');
     src: url('../lib/froala/fonts/FrutigerLT-Bold.eot?#iefix') format('embedded-opentype'),
         url('../lib/froala/fonts/FrutigerLT-Bold.woff') format('woff'),
