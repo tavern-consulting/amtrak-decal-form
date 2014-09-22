@@ -4,7 +4,29 @@
 @import url('reset.css');
 
 @font-face {
-    font-family: 'tahomaregular';
+    font-family: 'Arial';
+    src: url('../lib/froala/fonts/arial-webfont.eot');
+    src: url('../lib/froala/fonts/arial-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../lib/froala/fonts/arial-webfont.woff2') format('woff2'),
+        url('../lib/froala/fonts/arial-webfont.woff') format('woff'),
+        url('../lib/froala/fonts/arial-webfont.ttf') format('truetype'),
+        url('../lib/froala/fonts/arial-webfont.svg#arialregular') format('svg');
+    font-weight: normal;
+    font-style: normal;}
+
+@font-face {
+    font-family: 'Times New Roman';
+    src: url('../lib/froala/fonts/times-webfont.eot');
+    src: url('../lib/froala/fonts/times-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../lib/froala/fonts/times-webfont.woff2') format('woff2'),
+        url('../lib/froala/fonts/times-webfont.woff') format('woff'),
+        url('../lib/froala/fonts/times-webfont.ttf') format('truetype'),
+        url('../lib/froala/fonts/times-webfont.svg#times_new_romanregular') format('svg');
+    font-weight: normal;
+    font-style: normal;}
+
+@font-face {
+    font-family: 'Tahoma';
     src: url('../lib/froala/fonts/tahoma-webfont.eot');
     src: url('../lib/froala/fonts/tahoma-webfont.eot?#iefix') format('embedded-opentype'),
         url('../lib/froala/fonts/tahoma-webfont.woff2') format('woff2'),
@@ -13,6 +35,43 @@
         url('../lib/froala/fonts/tahoma-webfont.svg#tahomaregular') format('svg');
     font-weight: normal;
     font-style: normal;}
+
+@font-face {
+    font-family: 'Helvetica Condensed';
+    src: url('../lib/froala/fonts/helvetica_condensed_black-webfont.eot');
+    src: url('../lib/froala/fonts/helvetica_condensed_black-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../lib/froala/fonts/helvetica_condensed_black-webfont.woff2') format('woff2'),
+        url('../lib/froala/fonts/helvetica_condensed_black-webfont.woff') format('woff'),
+        url('../lib/froala/fonts/helvetica_condensed_black-webfont.ttf') format('truetype'),
+        url('../lib/froala/fonts/helvetica_condensed_black-webfont.svg#helveticaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;}
+
+@font-face {
+    font-family:'Frutiger 55';
+    src: url('../lib/froala/fonts/FrutigerLT-Black.eot');
+    src: url('../lib/froala/fonts/FrutigerLT-Black.eot?#iefix') format('embedded-opentype'),
+        url('../lib/froala/fonts/FrutigerLT-Black.woff') format('woff'),
+        url('../lib/froala/fonts/FrutigerLT-Black.ttf') format('truetype'),
+        url('../lib/froala/fonts/FrutigerLT-Black.otf') format('opentype'),
+        url('../lib/froala/fonts/FrutigerLT-Black.svg#FrutigerLT-Black') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0-10FFFF;}
+    
+@font-face {
+    font-family:'Frutiger 45';
+    src: url('../lib/froala/fonts/FrutigerLT-Bold.eot');
+    src: url('../lib/froala/fonts/FrutigerLT-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../lib/froala/fonts/FrutigerLT-Bold.woff') format('woff'),
+        url('../lib/froala/fonts/FrutigerLT-Bold.ttf') format('truetype'),
+        url('../lib/froala/fonts/FrutigerLT-Bold.otf') format('opentype'),
+        url('../lib/froala/fonts/FrutigerLT-Bold.svg#FrutigerLT-Bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0-10FFFF;}
 
 /* ------------------------------- */
 /* Useful Classes */
