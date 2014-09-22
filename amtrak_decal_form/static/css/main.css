@@ -80,6 +80,8 @@ body {
 #id_description {
     width: 100%;
     box-sizing: border-box;}
+.editor-fake-label {
+    line-height: 30px;}
     
 /* ------------------------------- */
 /* Helper Modal Classes */
@@ -138,7 +140,6 @@ body {
 #border-thickness-modal .very-thick {
     border-top-width: 25px;}
 
-
 /* ------------------------------- */
 /* Validation */
 /* ------------------------------- */
@@ -149,3 +150,22 @@ input.validation-error {
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #D59392;
     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #D59392;}
+
+
+/* ------------------------------- */
+/* Froala Overrides */
+/* ------------------------------- */
+
+.froala-box .froala-editor {
+    background-color: #ecf0f1;
+    border-top: solid 1px #252525;}
+
+.froala-box .froala-element {
+    background-color: #fff;}
+
+
+
+
+
+
+
