@@ -210,8 +210,22 @@ class DecalSpecForm(forms.Form):
             ('36px', 'Very Large'),
         ],
     )
-    height = forms.CharField(required=False)
-    width = forms.CharField(required=False)
+    height = forms.CharField(
+        required=False,
+        label='Height (in.)',
+        widget=forms.TextInput({
+            'class': 'input-mini',
+            'placeholder': '0.000',
+        }),
+    )
+    width = forms.CharField(
+        required=False,
+        label='Width (in.)',
+        widget=forms.TextInput({
+            'class': 'input-mini',
+            'placeholder': '0.000',
+        }),
+    )
     html = forms.CharField(required=False, widget=forms.Textarea)
     border_type = forms.ChoiceField(
         choices=[
