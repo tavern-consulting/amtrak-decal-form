@@ -1,4 +1,6 @@
 $( document ).ready(function() {
+
+	$('.datepicker').datepicker();
     var $errorMessage = $('#error-alert');
     $('input').focus(function() {
         $(this).removeClass('validation-error');
