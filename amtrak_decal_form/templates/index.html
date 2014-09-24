@@ -10,6 +10,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}?t={% now 'U' %}" type="text/css" />
 	<link rel="stylesheet" href="{% static 'css/bootstrap-responsive.min.css' %}?t={% now 'U' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'css/datepicker.css' %}?t={% now 'U' %}" type="text/css">
 
     <!-- Froala Requirements -->
     <link rel="stylesheet" href="{% static 'lib/froala/css/font-awesome.min.css' %}?t={% now 'U' %}" type="text/css" />
@@ -84,6 +85,9 @@
 							</div>
 							<div class="cf">
 								{% render_field user_form 'account' %}
+							</div>
+							<div class="cf">
+								{% render_field user_form 'date' %}
 							</div>
 						</div>
 					</div>
@@ -288,6 +292,7 @@
 <script type="text/javascript" src="{% static 'lib/cycle2.min.js' %}?t={% now 'U' %}"></script>
 <script type="text/javascript" src="{% static 'lib/bootstrap-tooltip.js' %}?t={% now 'U' %}"></script>
 <script type="text/javascript" src="{% static 'lib/froala/js/froala_editor.min.js' %}?t={% now 'U' %}"></script>
+<script type="text/javascript" src="{% static 'lib/bootstrap-datepicker.js' %}?t={% now 'U' %}"></script>
 <script type="text/javascript" src="{% static 'js/main.js' %}?t={% now 'U' %}"></script>
 
 </html>
