@@ -210,6 +210,22 @@ class DecalSpecForm(forms.Form):
             ('36px', 'Very Large'),
         ],
     )
+    height = forms.CharField(
+        required=False,
+        label='Height (in.)',
+        widget=forms.TextInput({
+            'class': 'input-mini',
+            'placeholder': '0.000',
+        }),
+    )
+    width = forms.CharField(
+        required=False,
+        label='Width (in.)',
+        widget=forms.TextInput({
+            'class': 'input-mini',
+            'placeholder': '0.000',
+        }),
+    )
     html = forms.CharField(required=False, widget=forms.Textarea)
     border_type = forms.ChoiceField(
         choices=[
@@ -265,3 +281,15 @@ class DecalSpecForm(forms.Form):
         if self.cleaned_data.get('border_type') == 'None':
             return ''
         return border_thickness
+
+    def clean_height(self):
+        height = self.cleaned_data['height']
+        if not height:
+            return '8'
+        return height
+
+    def clean_width(self):
+        width = self.cleaned_data['width']
+        if not width:
+            return '12'
+        return width
