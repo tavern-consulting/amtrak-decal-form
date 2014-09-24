@@ -148,6 +148,11 @@ class UserInfoForm(forms.Form):
     cost_center = forms.CharField()
     wbs_element = forms.CharField()
     account = forms.CharField()
+    date = forms.CharField(
+        widget=forms.TextInput({
+            'class': 'datepicker',
+        }),
+    )
 
     def clean_alternate_phone_number(self):
         if 'phone_number' not in self.cleaned_data:

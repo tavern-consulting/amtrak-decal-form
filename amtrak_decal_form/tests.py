@@ -44,6 +44,7 @@ class FormTestCase(TestCase):
             'cost_center': 'cost_center',
             'wbs_element': 'wbs_element',
             'account': 'account',
+            'date': '12/12/2050',
             'line1': 'line1',
             'line2': 'line2',
             'city': 'Indianapolis',
