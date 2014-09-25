@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from django import forms
 
 from localflavor.us.forms import (
@@ -92,6 +94,11 @@ ROLLING_STOCK = 'Rolling Stock'
 NON_ROLLING_STOCK = 'Non-Rolling Stock'
 
 
+def get_default_date():
+    date = datetime.now() + timedelta(days=5)
+    return date.strftime('%m/%d/%Y')
+
+
 class USStateSelect(forms.Select):
     """
     A Select widget that uses a list of U.S. states/territories as its choices.
@@ -149,6 +156,7 @@ class UserInfoForm(forms.Form):
     wbs_element = forms.CharField()
     account = forms.CharField()
     date = forms.CharField(
+        initial=get_default_date(),
         widget=forms.TextInput({
             'class': 'datepicker',
         }),
