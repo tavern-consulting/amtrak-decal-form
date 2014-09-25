@@ -108,9 +108,6 @@
 							<div class="cf">
                                 {% render_field decal_form 'fleet_type' %}
 							</div>
-							<div class="cf">
-                                {% render_field decal_form 'font_color' %}
-							</div>
 							<div id="border-color" class="cf hide">
                                 {% render_field decal_form 'border_color' %}
 							</div>
@@ -121,13 +118,13 @@
 							<div class="cf">
                                 {% render_field decal_form 'description' %}
 							</div>
+                            {% comment %}
 							<div class="cf">
-                                {% render_field decal_form 'font_face' %}
-                                <a href="#font-face-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
+                                {% render_field decal_form 'html' %}
 							</div>
+                            {% endcomment %}
 							<div class="cf">
-                                {% render_field decal_form 'font_size' %}
-                                <a href="#font-size-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
+                                {% render_field decal_form 'clear_receptive' %}
 							</div>
 							<div class="cf">
                                 {% render_field decal_form 'height' %}
@@ -135,11 +132,9 @@
 							<div class="cf">
                                 {% render_field decal_form 'width' %}
 							</div>
-                            {% comment %}
 							<div class="cf">
-                                {% render_field decal_form 'html' %}
+                                {% render_field decal_form 'reflective_white' %}
 							</div>
-                            {% endcomment %}
 							<div id="border-type" class="cf">
                                 {% render_field decal_form 'border_type' %}
                                 <a href="#border-type-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
@@ -298,6 +293,9 @@
 <script type="text/javascript" src="{% static 'lib/cycle2.min.js' %}?t={% now 'U' %}"></script>
 <script type="text/javascript" src="{% static 'lib/bootstrap-tooltip.js' %}?t={% now 'U' %}"></script>
 <script type="text/javascript" src="{% static 'lib/froala/js/froala_editor.min.js' %}?t={% now 'U' %}"></script>
+<script type="text/javascript" src="{% static 'lib/froala/js/plugins/font_family.min.js' %}?t={% now 'U' %}"></script>
+<script type="text/javascript" src="{% static 'lib/froala/js/plugins/font_size.min.js' %}?t={% now 'U' %}"></script>
+<script type="text/javascript" src="{% static 'lib/froala/js/plugins/colors.min.js' %}?t={% now 'U' %}"></script>
 <script type="text/javascript" src="{% static 'lib/bootstrap-datepicker.js' %}?t={% now 'U' %}"></script>
 <script type="text/javascript" src="{% static 'js/main.js' %}?t={% now 'U' %}"></script>
 

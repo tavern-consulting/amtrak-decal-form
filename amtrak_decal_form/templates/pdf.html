@@ -88,10 +88,6 @@
         <td>{{ decal_form.fleet_type.value }}</td>
     </tr>
     <tr>
-        <td>{{ decal_form.font_color.label }}</td>
-        <td>{{ decal_form.font_color.value }}</td>
-    </tr>
-    <tr>
         <td>{{ decal_form.border_color.label }}</td>
         <td>{{ decal_form.border_color.value }}</td>
     </tr>
@@ -100,12 +96,12 @@
         <td>{{ decal_form.description.value }}</td>
     </tr>
     <tr>
-        <td>{{ decal_form.font_face.label }}</td>
-        <td>{{ decal_form.font_face.value }}</td>
+        <td>{{ decal_form.clear_receptive.label }}</td>
+        <td>{% if decal_form.clear_receptive.value %}Yes{% else %}No{% endif %}</td>
     </tr>
     <tr>
-        <td>{{ decal_form.font_size.label }}</td>
-        <td>{{ decal_form.font_size.value }}</td>
+        <td>{{ decal_form.reflective_white.label }}</td>
+        <td>{% if decal_form.reflective_white.value %}Yes{% else %}No{% endif %}</td>
     </tr>
     <tr>
         <td>{{ decal_form.height.label }}</td>

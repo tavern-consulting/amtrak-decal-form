@@ -11,7 +11,6 @@ class UserPanel(object):
             ('id_cost_center', 'Cost Center'),
             ('id_wbs_element', 'WBS Element'),
             ('id_account', 'Account'),
-            ('id_date', '12/12/2050'),
         ]
         for element_id, value in char_fields:
             element = self.driver.find_element_by_id(element_id)

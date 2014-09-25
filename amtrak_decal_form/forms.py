@@ -25,17 +25,6 @@ VALID_COLORS = (
     ('#BD2031', 'Cardinal Red'),
     ('#FFFF00', 'Yellow'),
     ('#FFFFFF', 'White'),
-
-    ('#CLRREC', 'Clear Receptive'),
-    ('#REFFFF', 'Reflective White'),
-)
-VALID_FONTS = (
-    ('Frutiger 55', 'Frutiger 55'),
-    ('Frutiger Bold 55', 'Frutiger Bold 55'),
-    ('Frutiger Italic 55', 'Frutiger Italic 55'),
-    ('Helvetica', 'Helvetica'),
-    ('Helvetica Bold', 'Helvetica Bold'),
-    ('Helvetica Italic', 'Helvetica Italic'),
 )
 
 
@@ -194,7 +183,6 @@ class DecalSpecForm(forms.Form):
         widget=forms.RadioSelect(),
     )
     fleet_type = forms.ChoiceField(choices=VALID_FLEET_TYPES)
-    font_color = forms.ChoiceField(choices=VALID_COLORS)
     border_color = forms.ChoiceField(choices=VALID_COLORS, required=False)
     description = forms.CharField(
         required=False,
@@ -202,21 +190,6 @@ class DecalSpecForm(forms.Form):
             'rows': 6,
             'cols': 40,
         })
-    )
-    font_face = forms.ChoiceField(
-        choices=VALID_FONTS,
-        widget=forms.Select({
-            'class': 'input-medium',
-        }),
-    )
-    font_size = forms.ChoiceField(
-        choices=[
-            ('8px', 'Very Small'),
-            ('12px', 'Small'),
-            ('16px', 'Medium'),
-            ('24px', 'Large'),
-            ('36px', 'Very Large'),
-        ],
     )
     height = forms.CharField(
         required=False,
@@ -235,6 +208,8 @@ class DecalSpecForm(forms.Form):
         }),
     )
     html = forms.CharField(required=False, widget=forms.Textarea)
+    clear_receptive = forms.BooleanField(required=False)
+    reflective_white = forms.BooleanField(required=False)
     border_type = forms.ChoiceField(
         choices=[
             ('None', 'None'),

@@ -55,11 +55,8 @@ class FormTestCase(TestCase):
             'rolling_stock_or_not': 'Rolling Stock',
             'placard_or_decal': 'Placard',
             'fleet_type': 'P32',
-            'font_color': '#000000',
             'border_color': '#000000',
             'description': 'Description',
-            'font_face': 'Helvetica',
-            'font_size': '12px',
             'height': '8',
             'width': '12',
             'html': '<p>Test<p>',
@@ -164,11 +161,8 @@ class DecalSpecFormTestCase(TestCase):
             'rolling_stock_or_not': NON_ROLLING_STOCK,
             'placard_or_decal': 'Placard',
             'fleet_type': 'ACS-64',
-            'font_color': '#FFFFFF',
             'border_type': 'None',
             'border_thickness': '5px',
-            'font_face': 'Frutiger 55',
-            'font_size': '8px',
             'required_substrate': 'Lexedge (Plastic)',
         }
         form = DecalSpecForm(data=params)
@@ -180,11 +174,8 @@ class DecalSpecFormTestCase(TestCase):
             'rolling_stock_or_not': NON_ROLLING_STOCK,
             'placard_or_decal': 'Placard',
             'fleet_type': 'ACS-64',
-            'font_color': '#FFFFFF',
             'border_type': 'Single',
             'border_thickness': '5px',
-            'font_face': 'Frutiger 55',
-            'font_size': '8px',
             'required_substrate': 'Lexedge (Plastic)',
         }
         form = DecalSpecForm(data=params)
