@@ -57,6 +57,8 @@ class FormTestCase(TestCase):
             'fleet_type': 'P32',
             'border_color': '#000000',
             'description': 'Description',
+            'height': '8',
+            'width': '12',
             'html': '<p>Test<p>',
             'border_type': 'None',
             'border_thickness': '5px',
