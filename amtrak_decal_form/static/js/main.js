@@ -37,12 +37,25 @@ $( document ).ready(function() {
         });
     });
     $('#border-type select').change(function() {
-        if($(this).val() == "None") {
+        var thisValue = $(this).val();
+        var noneRow = $('.modal-border-none');
+        var singleRow = $('.modal-border-single');
+        var doubleRow = $('.modal-border-double');
+        noneRow.addClass('hide');
+        singleRow.addClass('hide');
+        doubleRow.addClass('hide');
+        if(thisValue == "None") {
             $('#border-thickness').addClass('hide');
             $('#border-color').addClass('hide');
+            noneRow.removeClass('hide');
         } else {
             $('#border-thickness').removeClass('hide');
             $('#border-color').removeClass('hide');
+            if (thisValue == 'Single') {
+                singleRow.removeClass('hide');
+            } else {
+                doubleRow.removeClass('hide');
+            }
         }
     });
     $('#id_html').editable({
