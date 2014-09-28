@@ -141,8 +141,8 @@ class UserInfoForm(forms.Form):
         }),
     )
     email = forms.EmailField()
-    cost_center = forms.CharField()
-    wbs_element = forms.CharField()
+    cost_center = forms.IntegerField()
+    wbs_element = forms.IntegerField()
     account = forms.CharField()
     date = forms.CharField(
         initial=get_default_date(),
