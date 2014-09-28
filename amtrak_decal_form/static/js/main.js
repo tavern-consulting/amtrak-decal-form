@@ -36,25 +36,31 @@ $( document ).ready(function() {
             }
         });
     });
+    function removeHighlight($element) {
+        $element.removeClass('modal-highlight');
+    }
+    function addHighlight($element) {
+        $element.addClass('modal-highlight');
+    }
     $('#border-type select').change(function() {
         var thisValue = $(this).val();
-        var noneRow = $('.modal-border-none');
-        var singleRow = $('.modal-border-single');
-        var doubleRow = $('.modal-border-double');
-        noneRow.addClass('hide');
-        singleRow.addClass('hide');
-        doubleRow.addClass('hide');
+        var $noneRow = $('.modal-border-none');
+        var $singleRow = $('.modal-border-single');
+        var $doubleRow = $('.modal-border-double');
+        removeHighlight($noneRow);
+        removeHighlight($singleRow);
+        removeHighlight($doubleRow);
         if(thisValue == "None") {
             $('#border-thickness').addClass('hide');
             $('#border-color').addClass('hide');
-            noneRow.removeClass('hide');
+            addHighlight($noneRow);
         } else {
             $('#border-thickness').removeClass('hide');
             $('#border-color').removeClass('hide');
             if (thisValue == 'Single') {
-                singleRow.removeClass('hide');
+                addHighlight($singleRow);
             } else {
-                doubleRow.removeClass('hide');
+                addHighlight($doubleRow);
             }
         }
     });
