@@ -193,7 +193,7 @@ class DecalSpecForm(forms.Form):
     )
     height = forms.CharField(
         required=False,
-        label='Height (in.)',
+        label='Height (inches)',
         widget=forms.TextInput({
             'class': 'input-mini',
             'placeholder': '0.000',
@@ -201,7 +201,7 @@ class DecalSpecForm(forms.Form):
     )
     width = forms.CharField(
         required=False,
-        label='Width (in.)',
+        label='Width (inches)',
         widget=forms.TextInput({
             'class': 'input-mini',
             'placeholder': '0.000',
