@@ -115,6 +115,8 @@ body {
     box-sizing: border-box;}
 .editor-fake-label {
     line-height: 30px;}
+.modal-highlight {
+    background-color: #D9EDF7;}
     
 /* ------------------------------- */
 /* Helper Modal Classes */
