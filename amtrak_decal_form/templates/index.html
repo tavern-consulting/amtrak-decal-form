@@ -108,24 +108,13 @@
 							<div class="cf">
                                 {% render_field decal_form 'fleet_type' %}
 							</div>
-							<div id="border-color" class="cf hide">
-                                {% render_field decal_form 'border_color' %}
+							<div class="cf">
+                                {% render_field decal_form 'description' %}
 							</div>
                         </div>
                     </div>
                     <div class="span6">
                         <div class="pane">
-							<div class="cf">
-                                {% render_field decal_form 'description' %}
-							</div>
-                            {% comment %}
-							<div class="cf">
-                                {% render_field decal_form 'html' %}
-							</div>
-                            {% endcomment %}
-							<div class="cf">
-                                {% render_field decal_form 'clear_receptive' %}
-							</div>
 							<div class="cf">
                                 {% render_field decal_form 'height' %}
 							</div>
@@ -133,7 +122,13 @@
                                 {% render_field decal_form 'width' %}
 							</div>
 							<div class="cf">
+                                {% render_field decal_form 'clear_receptive' %}
+							</div>
+							<div class="cf">
                                 {% render_field decal_form 'reflective_white' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'required_substrate' %}
 							</div>
 							<div id="border-type" class="cf">
                                 {% render_field decal_form 'border_type' %}
@@ -143,8 +138,8 @@
                                 {% render_field decal_form 'border_thickness' %}
                                 <a href="#border-thickness-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
 							</div>
-							<div class="cf">
-                                {% render_field decal_form 'required_substrate' %}
+							<div id="border-color" class="cf hide">
+                                {% render_field decal_form 'border_color' %}
 							</div>
                         </div>
                     </div>

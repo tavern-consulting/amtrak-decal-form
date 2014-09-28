@@ -183,7 +183,13 @@ class DecalSpecForm(forms.Form):
         widget=forms.RadioSelect(),
     )
     fleet_type = forms.ChoiceField(choices=VALID_FLEET_TYPES)
-    border_color = forms.ChoiceField(choices=VALID_COLORS, required=False)
+    border_color = forms.ChoiceField(
+        choices=VALID_COLORS,
+        required=False,
+        widget=forms.Select({
+            'class': 'input-small',
+        }),
+    )
     description = forms.CharField(
         required=False,
         widget=forms.Textarea({
