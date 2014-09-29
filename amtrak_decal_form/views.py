@@ -46,17 +46,8 @@ def index(request):
             pdf = generate_pdf(pdf_data)
             today = date.today()
             filename = 'Decal-Request-%s' % today.strftime('%m-%d-%y')
-            # TODO remove
-            mock_up_html = render_to_string(
-                'mock_up.html',
-                {
-                    'html': mark_safe(decal_form.cleaned_data['html']),
-                },
-            )
-            mock_up_data = generate_pdf(mock_up_html)
-            # TODO remove
             if request.POST.get('action') == 'preview':
-                return PDFResponse(mock_up_data, filename)
+                return PDFResponse(pdf, filename)
             else:
                 subject = 'Decal Acquisition %s' % (
                     user_form.cleaned_data['name'],
