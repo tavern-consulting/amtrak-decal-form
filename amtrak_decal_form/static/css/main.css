@@ -117,6 +117,8 @@ body {
     line-height: 30px;}
 .modal-highlight {
     background-color: #D9EDF7;}
+.finish {
+    margin-top: 20px;}
     
 /* ------------------------------- */
 /* Helper Modal Classes */
@@ -186,7 +188,6 @@ input.validation-error {
     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #D59392;}
 
-
 /* ------------------------------- */
 /* Froala Overrides */
 /* ------------------------------- */
@@ -197,10 +198,4 @@ input.validation-error {
 
 .froala-box .froala-element {
     background-color: #fff;}
-
-
-
-
-
-
 
