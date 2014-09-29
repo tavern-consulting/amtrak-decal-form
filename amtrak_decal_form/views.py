@@ -56,7 +56,7 @@ def index(request):
             mock_up_data = generate_pdf(mock_up_html)
             # TODO remove
             if request.POST.get('action') == 'preview':
-                return PDFResponse(mock_up_html, filename)
+                return PDFResponse(mock_up_data, filename)
             else:
                 subject = 'Decal Acquisition %s' % (
                     user_form.cleaned_data['name'],
