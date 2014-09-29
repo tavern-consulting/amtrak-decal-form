@@ -117,8 +117,8 @@ body {
     line-height: 30px;}
 .modal-highlight {
     background-color: #D9EDF7;}
-.finish {
-    margin-top: 20px;}
+.finish-button {
+    margin-top: 20px !important;}
     
 /* ------------------------------- */
 /* Helper Modal Classes */
