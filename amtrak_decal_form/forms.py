@@ -216,6 +216,14 @@ class DecalSpecForm(forms.Form):
     html = forms.CharField(required=False, widget=forms.Textarea)
     clear_receptive = forms.BooleanField(required=False)
     reflective_white = forms.BooleanField(required=False)
+    sample_graphic = forms.BooleanField(
+        label='Please send me a sample graphic',
+        required=False,
+    )
+    sample_decal = forms.BooleanField(
+        label='Please send me a sample decal',
+        required=False,
+    )
     border_type = forms.ChoiceField(
         choices=[
             ('None', 'None'),
