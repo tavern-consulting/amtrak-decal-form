@@ -97,6 +97,16 @@ $( document ).ready(function() {
             $fleetType.addClass('hide');
         }
     });
+    $('#id_placard_or_decal').change(function() {
+        var value = $(this).find(':checked').val();
+        console.log(value);
+        var $requiredSubstrate = $('#required-substrate');
+        if (value === 'Placard') {
+            $requiredSubstrate.addClass('hide');
+        } else {
+            $requiredSubstrate.removeClass('hide');
+        }
+    });
     $('#id_html').editable({
         inlineMode: false,
         fontList: ['Arial', 'Times New Roman', 'Tahoma'],
