@@ -62,7 +62,7 @@ class FormTestCase(TestCase):
             'html': '<p>Test<p>',
             'border_type': 'None',
             'border_thickness': '5px',
-            'required_substrate': 'Lexedge (Plastic)',
+            'required_substrate': 'Solid Color',
 
             'action': self.action,
         }
@@ -129,33 +129,6 @@ class UserPanelFormTestCase(TestCase):
 
 
 class DecalSpecFormTestCase(TestCase):
-    # def test_rolling_stock_only_allows_subset_of_colors(self):
-    #     params = {
-    #         'rolling_stock_or_not': ROLLING_STOCK,
-    #         'font_color': '#789456',
-    #         'border_color': '#789456',
-    #     }
-    #     form = DecalSpecForm(data=params)
-    #     form.is_valid()
-    #     colored_fields = ['font_color', 'border_color']
-    #     for colored_field in colored_fields:
-    #         self.assertEqual(
-    #             form.errors[colored_field],
-    #             [FORM_ERRORS['multiple']['invalid_color']],
-    #         )
-
-    # def test_non_rolling_stock_allows_all_colors(self):
-    #     params = {
-    #         'rolling_stock_or_not': NON_ROLLING_STOCK,
-    #         'font_color': '#789456',
-    #         'border_color': '#789456',
-    #     }
-    #     form = DecalSpecForm(data=params)
-    #     form.is_valid()
-    #     colored_fields = ['font_color', 'border_color']
-    #     for colored_field in colored_fields:
-    #         assert colored_field not in form.errors
-
     def test_border_thickness_is_ignored_if_no_border(self):
         params = {
             'rolling_stock_or_not': NON_ROLLING_STOCK,
@@ -163,7 +136,7 @@ class DecalSpecFormTestCase(TestCase):
             'fleet_type': 'ACS-64',
             'border_type': 'None',
             'border_thickness': '5px',
-            'required_substrate': 'Lexedge (Plastic)',
+            'required_substrate': 'Solid Color',
         }
         form = DecalSpecForm(data=params)
         assert form.is_valid()
@@ -176,7 +149,7 @@ class DecalSpecFormTestCase(TestCase):
             'fleet_type': 'ACS-64',
             'border_type': 'Single',
             'border_thickness': '5px',
-            'required_substrate': 'Lexedge (Plastic)',
+            'required_substrate': 'Solid Color',
         }
         form = DecalSpecForm(data=params)
         assert form.is_valid()

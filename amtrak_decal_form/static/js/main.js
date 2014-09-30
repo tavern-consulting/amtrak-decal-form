@@ -21,6 +21,7 @@ $( document ).ready(function() {
                     $('#user-info-form').addClass('hide');
                 $('a.continue').addClass('hide');
                 $('.finish').removeClass('hide');
+                $('.welcome-message').addClass('hide');
                 } else {
                     for (var key in data.errors) {
                         if (data.errors.hasOwnProperty(key)) {
@@ -95,6 +96,16 @@ $( document ).ready(function() {
             $fleetType.removeClass('hide');
         } else {
             $fleetType.addClass('hide');
+        }
+    });
+    $('#id_placard_or_decal').change(function() {
+        var value = $(this).find(':checked').val();
+        console.log(value);
+        var $requiredSubstrate = $('#required-substrate');
+        if (value === 'Placard') {
+            $requiredSubstrate.addClass('hide');
+        } else {
+            $requiredSubstrate.removeClass('hide');
         }
     });
     $('#id_html').editable({

@@ -72,10 +72,9 @@ VALID_FLEET_TYPES = (
     ('Viewliner', 'Viewliner'),
 )
 VALID_SUBSTRATES = (
-    ('Vinyl (Solid Color)', 'Vinyl (Solid Color)'),
-    ('Vinyl (Reflective)', 'Vinyl (Reflective)'),
-    ('Vinyl (Luminescent)', 'Vinyl (Luminescent)'),
-    ('Lexedge (Plastic)', 'Lexedge (Plastic)'),
+    ('Solid Color', 'Solid Color'),
+    ('Reflective', 'Reflective'),
+    ('Luminescent', 'Luminescent'),
 )
 
 
@@ -215,7 +214,10 @@ class DecalSpecForm(forms.Form):
         }),
     )
     html = forms.CharField(required=False, widget=forms.Textarea)
-    clear_receptive = forms.BooleanField(required=False)
+    clear_receptive = forms.BooleanField(
+        label='Clear Background',
+        required=False,
+    )
     reflective_white = forms.BooleanField(required=False)
     sample_graphic = forms.BooleanField(
         label='Please send me a sample graphic',
@@ -248,6 +250,7 @@ class DecalSpecForm(forms.Form):
         }),
     )
     required_substrate = forms.ChoiceField(
+        label='Vinyl Type',
         choices=VALID_SUBSTRATES,
         widget=forms.Select({
             'class': 'input-large',

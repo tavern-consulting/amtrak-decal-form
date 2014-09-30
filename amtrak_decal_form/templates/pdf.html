@@ -129,7 +129,7 @@
     </tr>
     <tr>
         <td>{{ decal_form.required_substrate.label }}</td>
-        <td>{{ decal_form.required_substrate.value }}</td>
+        <td>{% if decal_form.placard_or_decal.value == 'Placard' %}Lexedge{% else %}{{ decal_form.required_substrate.value }}{% endif %}</td>
     </tr>
 </table>
 
