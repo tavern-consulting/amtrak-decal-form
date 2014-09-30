@@ -24,7 +24,13 @@ class PDFResponse(HttpResponse):
     will be appended to the filename.
     """
     def __init__(self, pdf_data, filename):
-        super(PDFResponse, self).__init__(pdf_data, mimetype='application/pdf')
+        super(
+            PDFResponse,
+            self,
+        ).__init__(
+            pdf_data,
+            content_type='application/pdf',
+        )
         self['Content-Disposition'] = 'attachment; filename=%s.pdf' % filename
 
 
