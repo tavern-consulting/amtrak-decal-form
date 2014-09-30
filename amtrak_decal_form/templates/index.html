@@ -35,6 +35,15 @@
                 </div>
             </div>
             
+            <!-- Intro Modal -->
+            <div class="row welcome-message">
+                <div class="span12">
+                    <div class="pane">
+                        <p class="welcome-message-text">Welcome to the Amtrak Decal Ordering website! This page has been created to capture all the information needed to quickly and accurately create, process, and ship you your decal and placard orders!  To begin, please fill out your information below (<a href="#need-information-modal" role="button" data-toggle="modal">why do we need your account information?</a>):</p>
+                    </div>
+                </div>
+            </div>
+            
             <!-- User Info -->
             <div id="user-info-form">
                 <div class="row">
@@ -88,6 +97,7 @@
 							</div>
 							<div class="cf">
 								{% render_field user_form 'date' %}
+                                <a href="#date-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>                                
 							</div>
 						</div>
 					</div>
@@ -100,42 +110,29 @@
                     <div class="span6">
                         <div class="pane">
 							<div class="cf">
+                                <a href="#rolling-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
                                 {% render_field decal_form 'rolling_stock_or_not' %}
-							</div>
-							<div class="cf">
-                                {% render_field decal_form 'placard_or_decal' %}
 							</div>
 							<div id="fleet-type" class="cf">
                                 {% render_field decal_form 'fleet_type' %}
 							</div>
 							<div class="cf">
-                                {% render_field decal_form 'description' %}
+                                <a href="#placard-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
+                                {% render_field decal_form 'placard_or_decal' %}
 							</div>
-                        </div>
-                    </div>
-                    <div class="span6">
-                        <div class="pane">
+							<div id="required-substrate" class="cf hide">
+                                {% render_field decal_form 'required_substrate' %}
+							</div>
 							<div class="cf">
                                 {% render_field decal_form 'height' %}
 							</div>
 							<div class="cf">
                                 {% render_field decal_form 'width' %}
 							</div>
-							<div class="cf">
-                                {% render_field decal_form 'clear_receptive' %}
-							</div>
-							<div class="cf">
-                                {% render_field decal_form 'reflective_white' %}
-							</div>
-							<div class="cf">
-                                {% render_field decal_form 'sample_graphic' %}
-							</div>
-							<div class="cf">
-                                {% render_field decal_form 'sample_decal' %}
-							</div>
-							<div id="required-substrate" class="cf hide">
-                                {% render_field decal_form 'required_substrate' %}
-							</div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <div class="pane">
 							<div id="border-type" class="cf">
                                 {% render_field decal_form 'border_type' %}
                                 <a href="#border-type-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
@@ -146,6 +143,17 @@
 							</div>
 							<div id="border-color" class="cf hide">
                                 {% render_field decal_form 'border_color' %}
+                                <a href="#border-color-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'clear_receptive' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'reflective_white' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'description' %}
+                                <a href="#description-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
 							</div>
                         </div>
                     </div>
@@ -155,12 +163,27 @@
                 <div class="row">
                     <div class="span12">
                         <div class="pane">
-                            <div class="editor-fake-label">Create a mock up of what you would like the decal to look like:</div>
+                            <div class="editor-fake-label">In the box below, please enter the text of the sign you would like us to create.  Use the formatting buttons to make the image look as close to your final product as possible, and put any additional details in the “Description:” box.</div>
                             {{ decal_form.html }}
-                        </div>
+                         </div>
                     </div>
                 </div>
                 
+                <!-- Other checkboxes -->
+                <div class="row">
+                    <div class="span6">
+                        <div class="pane">
+                            {% render_field decal_form 'sample_graphic' %}
+                            <a href="#sample-graphic-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <div class="pane">
+                            {% render_field decal_form 'sample_decal' %}
+                            <a href="#sample-decal-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <!-- Preview/Finish -->
@@ -175,6 +198,104 @@
             </div>	
             
         </form>
+</div>
+
+<!-- Rolling Modal -->
+<div id="rolling-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Rolling vs Non Rolling Stock</h3>
+    </div>
+    <div class="modal-body">
+        <p>Any signage that goes on rolling stock must be approved by the Industrial Engineering group. These types of orders may require an additional one to two days proecessing time.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<!-- Description Modal -->
+<div id="description-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Decal Description</h3>
+    </div>
+    <div class="modal-body">
+        <p>Tell us what kind of signage you are looking for, including shape and size, or enter the part number you have with a short description.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<!-- Placard Modal -->
+<div id="placard-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Placard vs Decal</h3>
+    </div>
+    <div class="modal-body">
+        <p>All placards come on Lexedge (plastic).</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<!-- Sample Graphic Modal -->
+<div id="sample-graphic-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Sending a Sample Graphic</h3>
+    </div>
+    <div class="modal-body">
+        <p>This will delay your order and may incur an additional setup fee.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<!-- Sample Decal Modal -->
+<div id="sample-decal-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Sending a Sample Decal</h3>
+    </div>
+    <div class="modal-body">
+        <p>This will delay your order and may incur an additional setup fee.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<!-- Need Information Modal -->
+<div id="need-information-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Why do we need your account information?</h3>
+    </div>
+    <div class="modal-body">
+        <p>Your time is valuable; We ask for your billing codes up front so that we can directly bill your cost center upon order completion and ship same-day. We can provide up front estimates on request, but please understand that since every order is unique, it may add 1-2 business days to your order.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<!-- Date Modal -->
+<div id="date-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Date Requested By</h3>
+    </div>
+    <div class="modal-body">
+        <p>Please allow at least five business days for order fulfillment.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
 </div>
 
 <!-- Border Type Modal -->
@@ -231,6 +352,45 @@
             <tr class="modal-border-thickness-very-thick">
                 <td>Very Thick</td>
                 <td><div class="border-thickness very-thick"></div></td>
+            </tr>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<!-- Border Color Modal -->
+<div id="border-color-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Border Color Examples</h3>
+    </div>
+    <div class="modal-body">
+        <table class="table table-bordered">
+            <tr class="modal-border-color-black">
+                <td>Black</td>
+                <td><div class="border-color black"></div></td>
+            </tr>
+            <tr class="modal-border-color-navy-blue">
+                <td>Navy Blue</td>
+                <td><div class="border-color navy-blue"></div></td>
+            </tr>
+            <tr class="modal-border-color-amtrak-blue">
+                <td>Amtrak Blue</td>
+                <td><div class="border-color amtrak-blue"></div></td>
+            </tr>
+            <tr class="modal-border-color-cardinal-red">
+                <td>Cardinal Red</td>
+                <td><div class="border-color cardinal-red"></div></td>
+            </tr>
+            <tr class="modal-border-color-yellow">
+                <td>Yellow</td>
+                <td><div class="border-color yellow"></div></td>
+            </tr>
+            <tr class="modal-border-color-white">
+                <td>White</td>
+                <td><div class="border-color white"></div></td>
             </tr>
         </table>
     </div>

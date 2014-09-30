@@ -99,7 +99,23 @@ body {
 .pane ul li label input {
     margin: 9px 0 0 0;}
 .pane label + ul {
-    margin: 30px 0 10px 0;}
+    margin: 0 0 10px 0;}
+ 
+ /* Checkbox Inputs */
+ 
+ 
+ 
+ /*
+ .checkbox input {
+     margin: 13px 0;}
+*/
+ /*
+-webkit-transition: background-color .2s linear;
+-moz-transition: background-color .2s linear;
+-o-transition: background-color .2s linear;
+-ms-transition: background-color .2s linear;
+transition: background-color .2s linear;}
+*/
  
  /* Helper Links */
 .helper-link {
@@ -113,12 +129,21 @@ body {
 #id_description {
     width: 100%;
     box-sizing: border-box;}
+.welcome-message-text,
 .editor-fake-label {
-    line-height: 30px;}
+    line-height: 25px;}
+.welcome-message-text {
+    margin-bottom: 0px;}
+.editor-fake-label {
+    margin-bottom: 10px;}
 .modal-highlight {
     background-color: #D9EDF7;}
 .finish-button {
     margin-top: 20px !important;}
+.froala-box {
+    margin-bottom: 10px;}
+.modal-body p {
+    line-height: 24px;}
     
 /* ------------------------------- */
 /* Helper Modal Classes */
@@ -176,6 +201,27 @@ body {
     margin-top: 3px;}
 #border-thickness-modal .very-thick {
     border-top-width: 25px;}
+
+/* Border Color Modal */
+#border-color-modal .border-color {
+    display: block;
+    width: 150px;
+    height: 20px;
+    margin: 0 auto;}
+#border-color-modal .black {
+    background-color: #000;}
+#border-color-modal .navy-blue {
+    background-color: #000080;}
+#border-color-modal .amtrak-blue {
+    background-color: #005983;}
+#border-color-modal .cardinal-red {
+    background-color: #BD2031;}
+#border-color-modal .yellow {
+    background-color: #FFFF00;}
+#border-color-modal .white {
+    background-color: #fff;
+    border: 1px dashed #777;
+    box-sizing: border-box;}
 
 /* ------------------------------- */
 /* Validation */

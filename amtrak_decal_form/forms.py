@@ -187,7 +187,7 @@ class DecalSpecForm(forms.Form):
         choices=VALID_COLORS,
         required=False,
         widget=forms.Select({
-            'class': 'input-small',
+            'class': 'input-medium',
         }),
     )
     description = forms.CharField(
@@ -214,7 +214,10 @@ class DecalSpecForm(forms.Form):
         }),
     )
     html = forms.CharField(required=False, widget=forms.Textarea)
-    clear_receptive = forms.BooleanField(required=False)
+    clear_receptive = forms.BooleanField(
+        label='Clear Background',
+        required=False,
+    )
     reflective_white = forms.BooleanField(required=False)
     sample_graphic = forms.BooleanField(
         label='Please send me a sample graphic',
