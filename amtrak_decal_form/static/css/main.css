@@ -99,7 +99,7 @@ body {
 .pane ul li label input {
     margin: 9px 0 0 0;}
 .pane label + ul {
-    margin: 30px 0 10px 0;}
+    margin: 0 0 10px 0;}
  
  /* Helper Links */
 .helper-link {
@@ -113,7 +113,8 @@ body {
 #id_description {
     width: 100%;
     box-sizing: border-box;}
-.editor-fake-label {
+.editor-fake-label,
+.welcome-message-text {
     line-height: 30px;}
 .modal-highlight {
     background-color: #D9EDF7;}
