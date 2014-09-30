@@ -145,6 +145,7 @@ class UserInfoForm(forms.Form):
     wbs_element = forms.IntegerField()
     account = forms.CharField()
     date = forms.CharField(
+        label='Date Requested By',
         initial=get_default_date(),
         widget=forms.TextInput({
             'class': 'datepicker',
