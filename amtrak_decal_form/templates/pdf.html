@@ -85,7 +85,7 @@
     </tr>
     <tr>
         <td>{{ decal_form.fleet_type.label }}</td>
-        <td>{{ decal_form.fleet_type.value }}</td>
+        <td>{% if decal_form.rolling_stock_or_not.value == 'Rolling Stock' %}{{ decal_form.fleet_type.value }}{% else %}None{% endif %}</td>
     </tr>
     <tr>
         <td>{{ decal_form.border_color.label }}</td>
