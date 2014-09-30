@@ -145,6 +145,7 @@ class UserInfoForm(forms.Form):
     wbs_element = forms.IntegerField()
     account = forms.CharField()
     date = forms.CharField(
+        label='Date Requested By',
         initial=get_default_date(),
         widget=forms.TextInput({
             'class': 'datepicker',
@@ -216,6 +217,14 @@ class DecalSpecForm(forms.Form):
     html = forms.CharField(required=False, widget=forms.Textarea)
     clear_receptive = forms.BooleanField(required=False)
     reflective_white = forms.BooleanField(required=False)
+    sample_graphic = forms.BooleanField(
+        label='Please send me a sample graphic',
+        required=False,
+    )
+    sample_decal = forms.BooleanField(
+        label='Please send me a sample decal',
+        required=False,
+    )
     border_type = forms.ChoiceField(
         choices=[
             ('None', 'None'),

@@ -104,6 +104,14 @@
         <td>{% if decal_form.reflective_white.value %}Yes{% else %}No{% endif %}</td>
     </tr>
     <tr>
+        <td>{{ decal_form.sample_graphic.label }}</td>
+        <td>{% if decal_form.sample_graphic.value %}Yes{% else %}No{% endif %}</td>
+    </tr>
+    <tr>
+        <td>{{ decal_form.sample_decal.label }}</td>
+        <td>{% if decal_form.sample_decal.value %}Yes{% else %}No{% endif %}</td>
+    </tr>
+    <tr>
         <td>{{ decal_form.height.label }}</td>
         <td>{{ decal_form.height.value }}</td>
     </tr>
