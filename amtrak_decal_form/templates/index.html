@@ -97,6 +97,7 @@
 							</div>
 							<div class="cf">
 								{% render_field user_form 'date' %}
+                                <a href="#date-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>                                
 							</div>
 						</div>
 					</div>
@@ -144,6 +145,7 @@
 							</div>
 							<div class="cf">
                                 {% render_field decal_form 'sample_decal' %}
+                                <a href="#sample-decal-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
 							</div>
 							<div id="required-substrate" class="cf hide">
                                 {% render_field decal_form 'required_substrate' %}
@@ -158,6 +160,7 @@
 							</div>
 							<div id="border-color" class="cf hide">
                                 {% render_field decal_form 'border_color' %}
+                                <a href="#border-color-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
 							</div>
                         </div>
                     </div>
@@ -193,7 +196,7 @@
 <div id="description-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Placard vs Decal</h3>
+        <h3 id="myModalLabel">Decal Description</h3>
     </div>
     <div class="modal-body">
         <p>Tell us what kind of signage you are looking for, including shape and usa, or enter the part number you have with a short description.</p>
@@ -221,7 +224,7 @@
 <div id="sample-graphic-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Sending a sample graphic.</h3>
+        <h3 id="myModalLabel">Sending a Sample Graphic</h3>
     </div>
     <div class="modal-body">
         <p>This will delay your order and may incur an additional setup fee.</p>
@@ -235,7 +238,7 @@
 <div id="sample-decal-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Sending a sample decal.</h3>
+        <h3 id="myModalLabel">Sending a Sample Decal</h3>
     </div>
     <div class="modal-body">
         <p>This will delay your order and may incur an additional setup fee.</p>
@@ -253,6 +256,20 @@
     </div>
     <div class="modal-body">
         <p>Your time is valuable; We ask for your billing codes up front so that we can directly bill your cost center upon order completion and ship same-day. We can provide up front estimates on request, but please understand that since every order is unique, it may add 1-2 business days to your order.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<!-- Date Modal -->
+<div id="date-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Date Requested By</h3>
+    </div>
+    <div class="modal-body">
+        <p>Please allow at least five business days for order fulfillment.</p>
     </div>
     <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -313,6 +330,45 @@
             <tr class="modal-border-thickness-very-thick">
                 <td>Very Thick</td>
                 <td><div class="border-thickness very-thick"></div></td>
+            </tr>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<!-- Border Color Modal -->
+<div id="border-color-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Border Color Examples</h3>
+    </div>
+    <div class="modal-body">
+        <table class="table table-bordered">
+            <tr class="modal-border-color-black">
+                <td>Black</td>
+                <td><div class="border-color black"></div></td>
+            </tr>
+            <tr class="modal-border-color-navy-blue">
+                <td>Navy Blue</td>
+                <td><div class="border-color navy-blue"></div></td>
+            </tr>
+            <tr class="modal-border-color-amtrak-blue">
+                <td>Amtrak Blue</td>
+                <td><div class="border-color amtrak-blue"></div></td>
+            </tr>
+            <tr class="modal-border-color-cardinal-red">
+                <td>Cardinal Red</td>
+                <td><div class="border-color cardinal-red"></div></td>
+            </tr>
+            <tr class="modal-border-color-yellow">
+                <td>Yellow</td>
+                <td><div class="border-color yellow"></div></td>
+            </tr>
+            <tr class="modal-border-color-white">
+                <td>White</td>
+                <td><div class="border-color white"></div></td>
             </tr>
         </table>
     </div>

@@ -113,9 +113,13 @@ body {
 #id_description {
     width: 100%;
     box-sizing: border-box;}
-.editor-fake-label,
+.welcome-message-text,
+.editor-fake-label {
+    line-height: 25px;}
 .welcome-message-text {
-    line-height: 30px;}
+    margin-bottom: 0px;}
+.editor-fake-label {
+    margin-bottom: 3px;}
 .modal-highlight {
     background-color: #D9EDF7;}
 .finish-button {
@@ -177,6 +181,27 @@ body {
     margin-top: 3px;}
 #border-thickness-modal .very-thick {
     border-top-width: 25px;}
+
+/* Border Color Modal */
+#border-color-modal .border-color {
+    display: block;
+    width: 150px;
+    height: 20px;
+    margin: 0 auto;}
+#border-color-modal .black {
+    background-color: #000;}
+#border-color-modal .navy-blue {
+    background-color: #000080;}
+#border-color-modal .amtrak-blue {
+    background-color: #005983;}
+#border-color-modal .cardinal-red {
+    background-color: #BD2031;}
+#border-color-modal .yellow {
+    background-color: #FFFF00;}
+#border-color-modal .white {
+    background-color: #fff;
+    border: 1px dashed #777;
+    box-sizing: border-box;}
 
 /* ------------------------------- */
 /* Validation */

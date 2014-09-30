@@ -187,7 +187,7 @@ class DecalSpecForm(forms.Form):
         choices=VALID_COLORS,
         required=False,
         widget=forms.Select({
-            'class': 'input-small',
+            'class': 'input-medium',
         }),
     )
     description = forms.CharField(
