@@ -36,13 +36,56 @@ $( document ).ready(function() {
             }
         });
     });
+    function removeHighlight($element) {
+        $element.removeClass('modal-highlight');
+    }
+    function addHighlight($element) {
+        $element.addClass('modal-highlight');
+    }
     $('#border-type select').change(function() {
-        if($(this).val() == "None") {
+        var thisValue = $(this).val();
+        var $noneRow = $('.modal-border-type-none');
+        var $singleRow = $('.modal-border-type-single');
+        var $doubleRow = $('.modal-border-type-double');
+        removeHighlight($noneRow);
+        removeHighlight($singleRow);
+        removeHighlight($doubleRow);
+        if(thisValue == "None") {
             $('#border-thickness').addClass('hide');
             $('#border-color').addClass('hide');
+            addHighlight($noneRow);
         } else {
             $('#border-thickness').removeClass('hide');
             $('#border-color').removeClass('hide');
+            if (thisValue == 'Single') {
+                addHighlight($singleRow);
+            } else {
+                addHighlight($doubleRow);
+            }
+        }
+    });
+    $('#border-thickness select').change(function() {
+        var thisValue = $(this).val();
+        var $veryThin = $('.modal-border-thickness-very-thin');
+        var $thin = $('.modal-border-thickness-thin');
+        var $medium = $('.modal-border-thickness-medium');
+        var $thick = $('.modal-border-thickness-thick');
+        var $veryThick = $('.modal-border-thickness-very-thick');
+        removeHighlight($veryThin);
+        removeHighlight($thin);
+        removeHighlight($medium);
+        removeHighlight($thick);
+        removeHighlight($veryThick);
+        if(thisValue == "5px") {
+            addHighlight($veryThin);
+        } else if(thisValue == '10px') {
+            addHighlight($thin);
+        } else if(thisValue == '15px') {
+            addHighlight($medium);
+        } else if(thisValue == '20px') {
+            addHighlight($thick);
+        } else if(thisValue == '25px') {
+            addHighlight($veryThick);
         }
     });
     $('#id_html').editable({

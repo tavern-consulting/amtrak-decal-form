@@ -108,24 +108,13 @@
 							<div class="cf">
                                 {% render_field decal_form 'fleet_type' %}
 							</div>
-							<div id="border-color" class="cf hide">
-                                {% render_field decal_form 'border_color' %}
+							<div class="cf">
+                                {% render_field decal_form 'description' %}
 							</div>
                         </div>
                     </div>
                     <div class="span6">
                         <div class="pane">
-							<div class="cf">
-                                {% render_field decal_form 'description' %}
-							</div>
-                            {% comment %}
-							<div class="cf">
-                                {% render_field decal_form 'html' %}
-							</div>
-                            {% endcomment %}
-							<div class="cf">
-                                {% render_field decal_form 'clear_receptive' %}
-							</div>
 							<div class="cf">
                                 {% render_field decal_form 'height' %}
 							</div>
@@ -133,7 +122,13 @@
                                 {% render_field decal_form 'width' %}
 							</div>
 							<div class="cf">
+                                {% render_field decal_form 'clear_receptive' %}
+							</div>
+							<div class="cf">
                                 {% render_field decal_form 'reflective_white' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'required_substrate' %}
 							</div>
 							<div id="border-type" class="cf">
                                 {% render_field decal_form 'border_type' %}
@@ -143,8 +138,8 @@
                                 {% render_field decal_form 'border_thickness' %}
                                 <a href="#border-thickness-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
 							</div>
-							<div class="cf">
-                                {% render_field decal_form 'required_substrate' %}
+							<div id="border-color" class="cf hide">
+                                {% render_field decal_form 'border_color' %}
 							</div>
                         </div>
                     </div>
@@ -168,62 +163,12 @@
                     <div class="pane">
                         <a href="#" class="continue btn btn-primary btn-block btn-large">Continue <i class="icon-arrow-right icon-white"></i></a>
                         <button name="action" value="preview" type="submit" class="finish btn btn-primary btn-block btn-large hide">Preview <i class="icon-eye-open icon-white"></i></button>
-                        <br>
-                        <button name="action" value="finish" type="submit" class="finish btn btn-primary btn-block btn-large hide">Finish <i class="icon-arrow-right icon-white"></i></button>
+                        <button name="action" value="finish" type="submit" class="finish finish-button btn btn-primary btn-block btn-large hide">Finish <i class="icon-arrow-right icon-white"></i></button>
                     </div>
                 </div>
             </div>	
             
         </form>
-</div>
-
-<!-- Font Face Modal -->
-<div id="font-face-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Font Face Examples</h3>
-    </div>
-    <div class="modal-body">
-        <p>Table of examples.</p>
-    </div>
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    </div>
-</div>
-
-<!-- Font Size Modal -->
-<div id="font-size-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Font Size Examples</h3>
-    </div>
-    <div class="modal-body">
-        <table class="table table-bordered">
-            <tr>
-                <td>Very Small</td>
-                <td class="very-small">The quick brown fox...</td>
-            </tr>
-            <tr>
-                <td>Small</td>
-                <td class="small">The quick brown fox...</td>
-            </tr>
-            <tr>
-                <td>Medium</td>
-                <td class="medium">The quick brown fox...</td>
-            </tr>
-            <tr>
-                <td>Large</td>
-                <td class="large">The quick brown fox...</td>
-            </tr>
-            <tr>
-                <td>Very Large</td>
-                <td class="very-large">The quick brown fox...</td>
-            </tr>
-        </table>
-    </div>
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    </div>
 </div>
 
 <!-- Border Type Modal -->
@@ -234,11 +179,15 @@
     </div>
     <div class="modal-body">
         <table class="table table-bordered">
-            <tr>
+            <tr class="modal-border-type-none modal-highlight">
+                <td>None</td>
+                <td></td>
+            </tr>
+            <tr class="modal-border-type-single">
                 <td>Single</td>
                 <td><div class="border-type single"></div></td>
             </tr>
-            <tr>
+            <tr class="modal-border-type-double">
                 <td>Double</td>
                 <td><div class="border-type double"></div></td>
             </tr>
@@ -257,23 +206,23 @@
     </div>
     <div class="modal-body">
         <table class="table table-bordered">
-            <tr>
+            <tr class="modal-border-thickness-very-thin modal-highlight">
                 <td>Very Thin</td>
                 <td><div class="border-thickness very-thin"></div></td>
             </tr>
-            <tr>
+            <tr class="modal-border-thickness-thin">
                 <td>Thin</td>
                 <td><div class="border-thickness thin"></div></td>
             </tr>
-            <tr>
+            <tr class="modal-border-thickness-medium">
                 <td>Medium</td>
                 <td><div class="border-thickness medium"></div></td>
             </tr>
-            <tr>
+            <tr class="modal-border-thickness-thick">
                 <td>Thick</td>
                 <td><div class="border-thickness thick"></div></td>
             </tr>
-            <tr>
+            <tr class="modal-border-thickness-very-thick">
                 <td>Very Thick</td>
                 <td><div class="border-thickness very-thick"></div></td>
             </tr>
