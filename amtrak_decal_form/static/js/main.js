@@ -88,6 +88,15 @@ $( document ).ready(function() {
             addHighlight($veryThick);
         }
     });
+    $('#id_rolling_stock_or_not').change(function() {
+        var value = $(this).find(':checked').val();
+        var $fleetType = $('#fleet-type');
+        if (value === 'Rolling Stock') {
+            $fleetType.removeClass('hide');
+        } else {
+            $fleetType.addClass('hide');
+        }
+    });
     $('#id_html').editable({
         inlineMode: false,
         fontList: ['Arial', 'Times New Roman', 'Tahoma'],

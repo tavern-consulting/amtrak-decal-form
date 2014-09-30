@@ -254,26 +254,6 @@ class DecalSpecForm(forms.Form):
         }),
     )
 
-    # def clean_font_color(self):
-    #     font_color = self.cleaned_data['font_color']
-    #     if self.cleaned_data.get('rolling_stock_or_not') == NON_ROLLING_STOCK:  # noqa
-    #         return font_color
-    #     if font_color not in VALID_COLORS:
-    #         raise forms.ValidationError(
-    #             FORM_ERRORS['multiple']['invalid_color'],
-    #         )
-    #     return font_color
-
-    # def clean_border_color(self):
-    #     border_color = self.cleaned_data['border_color']
-    #     if self.cleaned_data.get('rolling_stock_or_not') == NON_ROLLING_STOCK:  # noqa
-    #         return border_color
-    #     if border_color not in VALID_COLORS:
-    #         raise forms.ValidationError(
-    #             FORM_ERRORS['multiple']['invalid_color'],
-    #         )
-    #     return border_color
-
     def clean_border_thickness(self):
         border_thickness = self.cleaned_data['border_thickness']
         if self.cleaned_data.get('border_type') == 'None':
