@@ -110,46 +110,29 @@
                     <div class="span6">
                         <div class="pane">
 							<div class="cf">
+                                <a href="#rolling-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
                                 {% render_field decal_form 'rolling_stock_or_not' %}
-							</div>
-							<div class="cf">
-                                <a href="#placard-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
-                                {% render_field decal_form 'placard_or_decal' %}
 							</div>
 							<div id="fleet-type" class="cf">
                                 {% render_field decal_form 'fleet_type' %}
 							</div>
 							<div class="cf">
-                                {% render_field decal_form 'description' %}
-                                <a href="#description-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
+                                <a href="#placard-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
+                                {% render_field decal_form 'placard_or_decal' %}
 							</div>
-                        </div>
-                    </div>
-                    <div class="span6">
-                        <div class="pane">
+							<div id="required-substrate" class="cf hide">
+                                {% render_field decal_form 'required_substrate' %}
+							</div>
 							<div class="cf">
                                 {% render_field decal_form 'height' %}
 							</div>
 							<div class="cf">
                                 {% render_field decal_form 'width' %}
 							</div>
-							<div class="cf">
-                                {% render_field decal_form 'clear_receptive' %}
-							</div>
-							<div class="cf">
-                                {% render_field decal_form 'reflective_white' %}
-							</div>
-							<div class="cf">
-                                {% render_field decal_form 'sample_graphic' %}
-                                <a href="#sample-graphic-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
-							</div>
-							<div class="cf">
-                                {% render_field decal_form 'sample_decal' %}
-                                <a href="#sample-decal-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
-							</div>
-							<div id="required-substrate" class="cf hide">
-                                {% render_field decal_form 'required_substrate' %}
-							</div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <div class="pane">
 							<div id="border-type" class="cf">
                                 {% render_field decal_form 'border_type' %}
                                 <a href="#border-type-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
@@ -162,6 +145,16 @@
                                 {% render_field decal_form 'border_color' %}
                                 <a href="#border-color-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
 							</div>
+							<div class="cf">
+                                {% render_field decal_form 'clear_receptive' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'reflective_white' %}
+							</div>
+							<div class="cf">
+                                {% render_field decal_form 'description' %}
+                                <a href="#description-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
+							</div>
                         </div>
                     </div>
 				</div>
@@ -172,10 +165,25 @@
                         <div class="pane">
                             <div class="editor-fake-label">In the box below, please enter the text of the sign you would like us to create.  Use the formatting buttons to make the image look as close to your final product as possible, and put any additional details in the “Description:” box.</div>
                             {{ decal_form.html }}
-                        </div>
+                         </div>
                     </div>
                 </div>
                 
+                <!-- Other checkboxes -->
+                <div class="row">
+                    <div class="span6">
+                        <div class="pane">
+                            {% render_field decal_form 'sample_graphic' %}
+                            <a href="#sample-graphic-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <div class="pane">
+                            {% render_field decal_form 'sample_decal' %}
+                            <a href="#sample-decal-modal" role="button" data-toggle="modal"><i class="helper-link icon-question-sign"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <!-- Preview/Finish -->
@@ -192,6 +200,20 @@
         </form>
 </div>
 
+<!-- Rolling Modal -->
+<div id="rolling-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Rolling vs Non Rolling Stock</h3>
+    </div>
+    <div class="modal-body">
+        <p>Any signage that goes on rolling stock must be approved by the Industrial Engineering group. These types of orders may require an additional one to two days proecessing time.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
 <!-- Description Modal -->
 <div id="description-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
@@ -199,7 +221,7 @@
         <h3 id="myModalLabel">Decal Description</h3>
     </div>
     <div class="modal-body">
-        <p>Tell us what kind of signage you are looking for, including shape and usa, or enter the part number you have with a short description.</p>
+        <p>Tell us what kind of signage you are looking for, including shape and size, or enter the part number you have with a short description.</p>
     </div>
     <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
