@@ -21,6 +21,7 @@ $( document ).ready(function() {
                     $('#user-info-form').addClass('hide');
                 $('a.continue').addClass('hide');
                 $('.finish').removeClass('hide');
+                $('.welcome-message').addClass('hide');
                 } else {
                     for (var key in data.errors) {
                         if (data.errors.hasOwnProperty(key)) {
