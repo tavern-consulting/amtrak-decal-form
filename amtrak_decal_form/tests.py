@@ -170,6 +170,7 @@ class EmailTestCase(FormTestCase):
     def test_success(self):
         r = self.client.post(self.url, self.params)
         self.assertEqual(r.status_code, 302)
+        self.assertRedirects(r, reverse('success'))
         self.assertNotEqual(r['Content-Type'], 'application/pdf')
         self.assertNotEqual(r.content[:4], '%PDF')
         self.assertEqual(len(mail.outbox), 1)
