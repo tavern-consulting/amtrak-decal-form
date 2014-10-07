@@ -96,7 +96,7 @@ def index(request):
 
 def success(request):
     context = {}
-    return render(request, 'success.html', context)
+    return render(request, 'thanks.html', context)
 
 
 @require_POST
