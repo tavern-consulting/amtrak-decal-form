@@ -34,54 +34,72 @@ class PDFResponse(HttpResponse):
         self['Content-Disposition'] = 'attachment; filename=%s.pdf' % filename
 
 
+def build_mock_up(html):
+    mock_up_html = render_to_string(
+        'mock_up.html',
+        {
+            'html': mark_safe(html),
+        },
+    )
+    return generate_pdf(mock_up_html)
+
+
+def build_mock_up_filename(today):
+    return 'Mock-Up-%s' % today.strftime('%m-%d-%y')
+
+
+def build_decal_info_pdf(user_form, decal_form):
+    pdf_data = render_to_string(
+        'pdf.html',
+        {
+            'user_form': user_form,
+            'decal_form': decal_form,
+        },
+    )
+
+    return generate_pdf(pdf_data)
+
+
+def build_decal_info_filename(today):
+    return 'Decal-Request-%s' % today.strftime('%m-%d-%y')
+
+
 def index(request):
     user_form = UserInfoForm()
     decal_form = DecalSpecForm()
+    today = date.today()
+
     if request.method == 'POST':
         user_form = UserInfoForm(data=request.POST)
         decal_form = DecalSpecForm(data=request.POST)
         if user_form.is_valid() and decal_form.is_valid():
-            pdf_data = render_to_string(
-                'pdf.html',
-                {
-                    'user_form': user_form,
-                    'decal_form': decal_form,
-                },
-            )
-
-            pdf = generate_pdf(pdf_data)
-            today = date.today()
-            filename = 'Decal-Request-%s' % today.strftime('%m-%d-%y')
+            mock_up_pdf = build_mock_up(decal_form.cleaned_data['html'])
+            mock_up_filename = build_mock_up_filename(today)
             if request.POST.get('action') == 'preview':
-                return PDFResponse(pdf, filename)
+                return PDFResponse(mock_up_pdf, mock_up_filename)
             else:
+                decal_info_pdf = build_decal_info_pdf(user_form, decal_form)
+                decal_info_filename = build_decal_info_filename(today)
+
                 subject = 'Decal Acquisition %s' % (
                     user_form.cleaned_data['name'],
                 )
                 from_email = user_form.cleaned_data['email']
-                mock_up_html = render_to_string(
-                    'mock_up.html',
-                    {
-                        'html': mark_safe(decal_form.cleaned_data['html']),
-                    },
-                )
-                mock_up_data = generate_pdf(mock_up_html)
                 email = mail.EmailMessage(
                     subject=subject,
                     body='See attachment.',
                     from_email=from_email,
                     to=[settings.EMAIL_TO],
                 )
-                mock_up_filename = 'Mock-Up-%s' % today.strftime('%m-%d-%y')
                 email.attach(
-                    filename,
-                    pdf,
+                    decal_info_filename,
+                    decal_info_pdf,
                     'application/pdf',
                 )
                 if decal_form.cleaned_data['html'] != '<p><br></p>':
                     email.attach(
                         mock_up_filename,
-                        mock_up_data,
+                        mock_up_pdf,
                         'application/pdf',
                     )
                     email.send()
