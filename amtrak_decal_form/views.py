@@ -103,13 +103,18 @@ def index(request):
                         'application/pdf',
                     )
                     email.send()
-                return redirect(reverse('index'))
+                return redirect(reverse('success'))
 
     context = {
         'user_form': user_form,
         'decal_form': decal_form,
     }
     return render(request, 'index.html', context)
+
+
+def success(request):
+    context = {}
+    return render(request, 'thanks.html', context)
 
 
 @require_POST
